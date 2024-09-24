@@ -1,0 +1,13 @@
+.button {
+  display: flex;
+  justify-content: center;
+  margin: 32px 0;
+
+  img {
+    background: linear-gradient(45deg, #4136f1, #8743ff);
+    height: 70px;
+    width: 70px;
+    border-radius: 16px;
+    padding: 16px;
+  }
+}

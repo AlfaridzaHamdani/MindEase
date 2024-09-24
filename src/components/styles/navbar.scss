@@ -5,6 +5,7 @@ $black-200: #dddddd;
 $white: #fcfcfc;
 
 .navbar {
+  z-index: 100;
   display: flex;
   padding: 2px;
   background-color: $black-200;
