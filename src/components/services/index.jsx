@@ -6,25 +6,25 @@ const Index = () => {
     {
       title: "Teletherapy Platforms",
 
-      icon: "/IconBrain.svg",
+      icon: "/Img.jpg",
       url: "/service1",
     },
     {
       title: "Mindfulness and Meditation Apps",
 
-      icon: "/IconBrain.svg",
+      icon: "/Img.jpg",
       url: "/service2",
     },
     {
       title: "Mental Health Assessment Tools",
 
-      icon: "/IconBrain.svg",
+      icon: "/Img.jpg",
       url: "/service2",
     },
     {
       title: "Support Community Platforms",
 
-      icon: "/IconBrain.svg",
+      icon: "/Img.jpg",
       url: "/service2",
     },
   ];
@@ -32,9 +32,11 @@ const Index = () => {
   return (
     <>
       <section className="serviceSection">
-        <div className="headings">
-          <span>SERVICES & TREATMENT</span>
-          <h1>Speciality and health care services</h1>
+        <div className="heading">
+          <h1>Here' what you can do with our Mental health care services</h1>
+          <button>
+            Learn More <img src="/Arrow.svg" alt="" />
+          </button>
         </div>
 
         <div className="container">

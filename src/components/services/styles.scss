@@ -5,37 +5,72 @@ $black-200: #dddddd;
 $white: #fcfcfc;
 
 .serviceSection {
+  position: relative;
+  padding: 32px 5vw 80px 5vw;
+  background-color: $white;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 40px;
   width: 100%;
-  padding: 0;
-  height: 100vh;
+
+  .heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+
+    h1 {
+      width: 30%;
+      font-size: 40px;
+      font-weight: 100;
+    }
+
+    button {
+      border: none;
+      width: fit-content;
+      height: fit-content;
+      font-size: 20px;
+      font-weight: 100;
+      padding: 16px 32px;
+      border-radius: 32px;
+      background: linear-gradient(45deg, #4136f1, #8743ff);
+      color: $white;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      img {
+        transform: rotate(-135deg);
+      }
+    }
+  }
 
   .container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: space-between;
     margin: 0 auto;
     gap: 16px;
     width: 100%;
 
     .card {
-      flex-basis: 45%;
+      flex-basis: calc(50% - 8px);
       display: flex;
       width: 350px;
       background-color: $white;
       border: $black-200 1px solid;
       border-radius: 16px;
       position: relative;
-      height: 100px;
+      height: 120px;
 
       img {
         flex-basis: 100%;
         height: 100%;
         width: 100%;
         border-radius: 16px;
+        object-fit: cover;
         object-position: right;
       }
 
@@ -48,25 +83,216 @@ $white: #fcfcfc;
         height: 100%;
         display: flex;
         align-items: center;
-        justify-content: start;
-        background: rgba(
-          255,
-          255,
-          255,
-          0.2
-        ); /* Warna background semi-transparan */
-        backdrop-filter: blur(10px); /* Efek blur */
-        -webkit-backdrop-filter: blur(
-          10px
-        ); /* Dukungan untuk browser berbasis WebKit */
-        border: 1px solid rgba(255, 255, 255, 0.3); /* Border putih semi-transparan */
-        border-radius: 0 16px 16px 0; /* Membuat sudut melengkung */
-        padding: 20px; /* Jarak di dalam elemen */
-        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Efek bayangan */
+        justify-content: center;
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 0 16px 16px 0;
+        padding: 20px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 
         h2 {
-          font-size: 20px;
+          font-size: 16px;
           font-weight: 400;
+          color: $black;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 575.98px) {
+  .serviceSection {
+    padding: 32px 2vw 80px 2vw;
+    flex-direction: column;
+
+    .heading {
+      flex-direction: column;
+      gap: 16px;
+
+      h1 {
+        width: 100%;
+        font-size: 28px;
+        text-align: center;
+      }
+
+      button {
+        font-size: 16px;
+        padding: 12px 24px;
+      }
+    }
+
+    .container {
+      .card {
+        flex-basis: 100%;
+        width: 100%;
+
+        img {
+          border-radius: 0 16px 16px 0;
+        }
+
+        .container {
+          width: 100%;
+          border-radius: 0 16px 16px 0;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .serviceSection {
+    padding: 32px 2vw 80px 2vw;
+
+    .heading {
+      flex-direction: column;
+      h1 {
+        font-size: 24px;
+        width: 100%;
+        text-align: center;
+      }
+
+      button {
+        font-size: 18px;
+        padding: 12px 24px;
+
+        img {
+          width: 18px;
+          height: 18px;
+        }
+      }
+    }
+
+    .container {
+      .card {
+        flex-basis: 100%;
+        width: 100%;
+
+        img {
+          border-radius: 0 16px 16px 0;
+        }
+
+        .container {
+          width: 100%;
+          border-radius: 0 16px 16px 0;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .serviceSection {
+    width: 700px;
+    padding: 0;
+
+    .heading {
+      h1 {
+        font-size: 32px;
+        width: 60%;
+      }
+
+      button {
+        font-size: 20px;
+        padding: 16px 32px;
+
+        img {
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+
+    .container {
+      .card {
+        flex-basis: calc(50% - 8px);
+
+        img {
+          border-radius: 16px;
+        }
+
+        .container {
+          width: 180px;
+          border-radius: 0 16px 16px 0;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .serviceSection {
+    width: 950px;
+    padding: 0;
+
+    .heading {
+      h1 {
+        font-size: 36px;
+        width: 60%;
+      }
+
+      button {
+        font-size: 20px;
+        padding: 16px 32px;
+
+        img {
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+
+    .container {
+      .card {
+        flex-basis: calc(50% - 8px);
+
+        img {
+          border-radius: 16px;
+        }
+
+        .container {
+          width: 180px;
+          border-radius: 0 16px 16px 0;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .serviceSection {
+    width: 1100px;
+    padding: 0;
+
+    .heading {
+      h1 {
+        font-size: 40px;
+        width: 60%;
+      }
+
+      button {
+        font-size: 20px;
+        padding: 16px 32px;
+
+        img {
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+
+    .container {
+      .card {
+        flex-basis: calc(50% - 8px);
+
+        img {
+          border-radius: 16px;
+        }
+
+        .container {
+          width: 280px;
+          border-radius: 0 16px 16px 0;
         }
       }
     }

@@ -8,7 +8,6 @@ function RoutesIndex() {
     <Routes>
       {/* route "/" */}
       <Route path="/" element={<LandingPage />} />
-
       {/* route "/schedule" */}
       <Route path="/booking" element={<Schedule />} />
       {/* route "/about" */}
