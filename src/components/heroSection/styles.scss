@@ -850,18 +850,18 @@ section {
           }
 
           .rounded::after {
-            right: 37px;
+            right: 36px;
           }
 
           .background::before {
-            right: 4px;
+            right: 5px;
             bottom: -24px;
             height: 25px;
             border-radius: 16px 0 0 0;
           }
 
           .background::after {
-            right: 4px;
+            right: 5px;
             bottom: -20px;
           }
         }
@@ -874,7 +874,7 @@ section {
 
         .bottom {
           .background::before {
-            right: -43px;
+            right: -43.5px;
           }
 
           .background::after {
