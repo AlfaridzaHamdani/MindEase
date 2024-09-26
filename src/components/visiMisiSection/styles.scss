@@ -1,0 +1,30 @@
+$black: #2c2c2c;
+$black-400: #5e5e5e;
+$black-300: #b5b5b5;
+$black-200: #dddddd;
+$white: #fcfcfc;
+
+.visiMisiSection {
+  width: 100%;
+  padding: 32px 64px;
+  display: flex;
+  flex-direction: column;
+
+  h2 {
+    text-align: center;
+  }
+
+  .container {
+    display: flex;
+    width: 100%;
+    gap: 32px;
+
+    p {
+      text-align: center;
+      color: $black;
+      font-size: 52px;
+      font-weight: 600;
+      margin-top: 32px;
+    }
+  }
+}

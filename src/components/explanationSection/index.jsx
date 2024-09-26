@@ -7,7 +7,7 @@ const index = () => {
       <section className="explanation">
         <h1>Explanation of MindEase</h1>
         <div className="container">
-          <img src="/Img.jpg" alt="" />
+          <img src="/puzzle.jpg" alt="" />
           <p>
             A bridge for those seeking to consult their mental health with
             qualified psychologists and experts. We connect you to professional

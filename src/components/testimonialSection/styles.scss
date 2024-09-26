@@ -1,0 +1,103 @@
+$black: #2c2c2c;
+$black-400: #5e5e5e;
+$black-300: #b5b5b5;
+$black-200: #dddddd;
+$white: #fcfcfc;
+
+.testimonialSection {
+  flex-direction: column;
+  padding: 0;
+  display: flex;
+  position: relative;
+  width: 100%;
+  align-items: center;
+
+  .container {
+    width: 100%;
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    width: 450px;
+    border-radius: 16px;
+    padding: 16px;
+    gap: 24px;
+    background-color: #fff; /* Warna background untuk card */
+    border-radius: 10px; /* Sudut melengkung */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1),
+      /* Bayangan ringan di dekat card */ 0 6px 20px rgba(0, 0, 0, 0.1); /* Bayangan lebih lembut di kejauhan */
+    transition: box-shadow 0.3s ease;
+
+    .top {
+      display: flex;
+      justify-content: space-between;
+
+      p {
+        font-size: 12px;
+        font-weight: 100;
+        border-radius: 20px;
+        color: $black;
+        width: 70%;
+      }
+
+      img {
+        width: 40px;
+        height: 40px;
+        object-fit: cover;
+        border-radius: 100px;
+      }
+    }
+
+    .bot {
+      display: flex;
+      height: fit-content;
+      justify-content: space-between;
+      h2 {
+        font-size: 12px;
+        font-weight: 100;
+        height: fit-content;
+        padding: 8px 24px;
+        border-radius: 20px;
+        color: $black;
+        width: fit-content;
+        align-items: center;
+      }
+
+      .star {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img {
+          width: 15px;
+          height: 15px;
+          object-fit: cover;
+          border-radius: 50px;
+        }
+      }
+    }
+  }
+
+  h1 {
+    font-size: 40px;
+    font-weight: 100;
+    padding: 80px 0 32px 0;
+    width: 1100px;
+  }
+
+  .containerTop {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+  }
+  .containerMid {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 32px 0;
+  }
+  .containerBot {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+  }
+}

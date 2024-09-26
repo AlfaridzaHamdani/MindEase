@@ -6,7 +6,14 @@ const index = () => {
     <>
       <section className="ctaSection">
         <div className="container">
-          <h1>Ready to improving your mental well-being?</h1>
+          <div className="element el1"></div>
+          <div className="element el2"></div>
+          <div className="element el3"></div>
+          <div className="element el4"></div>
+          <div className="element el5"></div>
+          <div className="element el6"></div>
+          <h3>Are you ready?</h3>
+          <h1>To improving your mental well-being</h1>
           <p>
             Join Thousands of our User who already using Mind Ease to Improve
             their mental well-being

@@ -11,7 +11,7 @@ function RoutesIndex() {
       {/* route "/schedule" */}
       <Route path="/booking" element={<Schedule />} />
       {/* route "/about" */}
-      <Route path="/aboutus" element={<AboutUs />} />
+      <Route path="/about" element={<AboutUs />} />
     </Routes>
   );
 }

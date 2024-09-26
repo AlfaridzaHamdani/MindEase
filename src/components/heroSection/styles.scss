@@ -3,7 +3,7 @@ $black-400: #5e5e5e;
 $black-300: #b5b5b5;
 $black-200: #dddddd;
 $white: #fcfcfc;
-$backgroundColor: #8993e1;
+$backgroundColor: #251b5f;
 
 section {
   position: relative;
@@ -252,7 +252,7 @@ section {
     z-index: 1;
     background-color: $black;
     background-image: url("/public/HeroImage.png");
-    background-position: center;
+    background-position: top;
     background-size: calc(100% + 180px);
     transform: translateX(-126px);
     border-radius: 16px;
@@ -313,9 +313,9 @@ section {
     height: 400px;
     background-color: $black;
     border-radius: 16px;
-    background-image: url("/public/heroImage2.png");
+    background-image: url("/public/HeroImage2.png");
     background-size: cover;
-    background-position: center;
+    background-position: top;
   }
 }
 

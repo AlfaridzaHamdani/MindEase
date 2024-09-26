@@ -6,25 +6,25 @@ const Index = () => {
     {
       title: "Teletherapy Platforms",
 
-      icon: "/Img.jpg",
+      icon: "/brain.jpg",
       url: "/service1",
     },
     {
       title: "Mindfulness and Meditation Apps",
 
-      icon: "/Img.jpg",
+      icon: "/radioMusic.jpg",
       url: "/service2",
     },
     {
       title: "Mental Health Assessment Tools",
 
-      icon: "/Img.jpg",
+      icon: "/tools.jpg",
       url: "/service2",
     },
     {
       title: "Support Community Platforms",
 
-      icon: "/Img.jpg",
+      icon: "/support.jpg",
       url: "/service2",
     },
   ];
