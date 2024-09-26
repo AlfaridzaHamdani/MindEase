@@ -1,7 +1,15 @@
 import React from "react";
 import "./styles.scss";
-import heroImg from "/HeroImage.png";
+import Arrow from "/ArrowDark.svg";
 import Button from "./button";
+
+const RoundedBtn = () => {
+  return (
+    <a className="roundedBtn">
+      <img src={Arrow} alt="" />
+    </a>
+  );
+};
 
 const index = () => {
   return (
@@ -63,7 +71,7 @@ const index = () => {
               <p>Wanna Know More about our website?</p>
             </div>
             <div className="cta">
-              <a href="#"></a>
+              <RoundedBtn />
             </div>
           </div>
           <div className="img"></div>

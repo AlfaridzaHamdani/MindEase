@@ -29,12 +29,12 @@ const index = () => {
             <div className="wrapper">
               <div></div>
               <img
-                src="https://placehold.co/600x400"
+                src="./HeroImage.jpg"
                 alt="Modern healthcare facility"
                 className="firstImg"
               />
               <img
-                src="https://placehold.co/600x400"
+                src="./HeroImage2.png"
                 alt="Healthcare professionals discussing"
                 className="secondImg"
               />

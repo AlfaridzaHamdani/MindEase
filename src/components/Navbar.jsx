@@ -4,7 +4,7 @@ import "./styles/navbar.scss";
 import { gsap } from "gsap";
 
 const Navbar = () => {
-  const navbar = ["Booking", "About"];
+  const navbar = ["Appointment", "About"];
   const itemRefs = useRef([]);
   const [hoveredItem, setHoveredItem] = useState(null);
   const [hoveredItemWidth, setHoveredItemWidth] = useState(0);
