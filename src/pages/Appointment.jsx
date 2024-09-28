@@ -1,165 +1,105 @@
-import React, { useState } from "react";
-import SearchBar from "../components/searchBar";
-import Navbar from "../components/Navbar";
 import "../components/styles/appointment.scss";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
-const CategoryNav = ({ title, icon }) => {
+const Consultant = (image) => {
   return (
-    <div className="category">
-      <div className="category-icon">
-        <img src={icon} alt={title} />
-      </div>
-      <h2 className="category-title">{title}</h2>
-    </div>
-  );
-};
-
-const DoctorCard = ({ name, category, image, rating }) => {
-  return (
-    <div className="doctor">
-      <img src={image} alt={name} />
-      <div className="container">
-        <div className="wrapper-1">
-          <h2>{name}</h2>
-          <h3>{category}</h3>
-        </div>
-        <div className="wrapper-2">
-          <img src="/star.svg" alt="" />
-          <p>{rating}</p>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-const Time = ({ time }) => {
-  return (
-    <div className="time">
-      <p>{time}</p>
-    </div>
-  );
-};
-
-const Date = ({ day, date, times, selected }) => {
-  return (
-    <div className="date">
-      <div className={`container ${selected ? "selected" : "notSelected"}`}>
-        <h1>{day}</h1>
-        <p>{date}</p>
-      </div>
-      <div className="time-options">
-        {times.map((time, index) => (
-          <Time key={index} time={time} />
-        ))}
-      </div>
+    <div className="consultant">
+      <img src={`./${image}.jpg`} alt="" className={image} />
     </div>
   );
 };
 
 const Appointment = () => {
-  const [selectedDateIndex, setSelectedDateIndex] = useState(null);
-
-  const categories = [
-    { title: "Psychiatrist", icon: "/img2.jpg" },
-    { title: "Psychologist", icon: "/img2.jpg" },
-    { title: "Psychotherapist", icon: "/img2.jpg" },
-    { title: "Child and Adolescent Psychiatrist", icon: "/img2.jpg" },
-    { title: "Forensic Psychiatrist", icon: "/img2.jpg" },
-    { title: "Counselor 1", icon: "/img2.jpg" },
-    { title: "Counselor 2", icon: "/img2.jpg" },
-    { title: "Counselor 3", icon: "/img2.jpg" },
-  ];
-
-  const doctors = [
-    {
-      name: "Dr. John Doe",
-      category: "Psychiatrist",
-      image: "/user1.jpg",
-      rating: "4.5",
-    },
-    {
-      name: "Dr. Jane Smith",
-      category: "Psychologist",
-      image: "/user2.jpg",
-      rating: "4.7",
-    },
-    {
-      name: "Dr. Emily Johnson",
-      category: "Psychotherapist",
-      image: "/user3.jpg",
-      rating: "4.6",
-    },
-  ];
-
-  const dates = [
-    { day: "Monday", date: "12", times: ["08:30", "09:30"] },
-    { day: "Tuesday", date: "13", times: ["08:30", "09:30"] },
-    { day: "Wednesday", date: "14", times: ["08:30", "09:30"] },
-    { day: "Thursday", date: "15", times: ["08:30", "09:30"], selected: true },
-    { day: "Friday", date: "16", times: ["08:30", "09:30"] },
-    { day: "Saturday", date: "17", times: ["08:30", "09:30"] },
-    { day: "Sunday", date: "18", times: ["08:30", "09:30"] },
-  ];
-
-  const handleDateClick = (index) => {
-    setSelectedDateIndex(index);
-  };
-
+  const consultant = ["user1", "user2", "user3", "user4"];
   return (
     <>
-      <SearchBar />
       <Navbar />
-      <h1 className="heading-1">Make Appointment</h1>
-      <section className="categorySection">
-        <div className="categories">
-          <h2 className="body-1">Choose category</h2>
+      <section className="appointmentSection">
+        <div className="heading">
+          <h1>
+            Quick <p></p> Easy Appointments
+          </h1>
+          <h1>
+            for Better<span> Health!</span>
+          </h1>
+        </div>
+
+        <div className="card">
+          <div className="stat helped">
+            <div className="wrapper">
+              <img src="./Arrow.svg" alt="arrow" />
+              <h3>30.000+</h3>
+            </div>
+            <p>People helped</p>
+          </div>
+
           <div className="container">
-            {categories.map((item, index) => (
-              <CategoryNav key={index} title={item.title} icon={item.icon} />
-            ))}
+            <img src="./user1.jpg" alt="" />
+            <div className="one"></div>
+            <div className="second"></div>
+            <div className="third"></div>
+          </div>
+          <div className="stat helper">
+            <div className="wrapper">
+              <img src="./Arrow.svg" alt="arrow" />
+              <h3>100+</h3>
+            </div>
+            <p>Consultant team ready to help</p>
           </div>
         </div>
       </section>
 
-      <section className="doctorSection">
-        <div className="doctors">
-          <h2 className="body-1">Choose doctor</h2>
-          <div className="container">
-            {doctors.map((item, index) => (
-              <DoctorCard
-                key={index}
-                name={item.name}
-                category={item.category}
-                image={item.image}
-                rating={item.rating}
-              />
-            ))}
+      <section className="consultantSection">
+        <div className="text">
+          <h1>Consultant you can trust</h1>
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Assumenda
+            cum nemo atque earum necessitatibus quae quidem, quis, iure mollitia
+            deleniti similique veritatis, blanditiis nesciunt saepe eius
+            molestiae ipsum? Rem, possimus.
+          </p>
+        </div>
+
+        <div className="wrapper ">
+          <div className="row top">
+            {consultant.slice(0, 2).map((image) => Consultant(image))}
+          </div>
+          <div className="row bot">
+            {consultant.slice(2, 4).map((image) => Consultant(image))}
           </div>
         </div>
       </section>
 
-      <section className="dntSection">
-        <div className="dnt">
-          <h2 className="body-1">Choose date and time</h2>
-          <hr />
-          <div className="dates">
-            {dates.map((item, index) => (
-              <div key={index}>
-                <Date
-                  day={item.day.slice(0, 3)}
-                  date={item.date}
-                  times={item.times}
-                  selected={item.selected}
-                />
-              </div>
-            ))}
+      <section className="optionSection">
+        <div className="container">
+          <div className="card cLeft">
+            <div className="left">
+              <h1>Psycology</h1>
+              <button>
+                <img src="./Arrow.svg" alt="" />
+                Learn More
+              </button>
+            </div>
+            <div className="right">
+              <img src="./Img.jpg" alt="" />
+            </div>
           </div>
-          <div className="bookNow">
-            <h2 className="body-1">Book Now</h2>
-            <button className="button">Book Now</button>
+          <div className="card cRight">
+            <div className="left">
+              <h1>Life Coach</h1>
+              <button>
+                <img src="./Arrow.svg" alt="" />
+                Learn More
+              </button>
+            </div>
+            <div className="right">
+              <img src="./Img.jpg" alt="" />
+            </div>
           </div>
         </div>
       </section>
+      <Footer />
     </>
   );
 };

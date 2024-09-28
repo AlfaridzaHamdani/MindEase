@@ -3,6 +3,7 @@ import LandingPage from "../pages/LandingPage";
 import Schedule from "../pages/Schedule";
 import AboutUs from "../pages/AboutUs";
 import Appointment from "../pages/Appointment";
+import LifeCoach from "../pages/LifeCoach";
 
 function RoutesIndex() {
   return (
@@ -15,6 +16,8 @@ function RoutesIndex() {
       <Route path="/about" element={<AboutUs />} />
       {/* route "/appointment" */}
       <Route path="/appointment" element={<Appointment />} />
+
+      <Route path="/appointment/life-coach" element={<LifeCoach />} />
     </Routes>
   );
 }

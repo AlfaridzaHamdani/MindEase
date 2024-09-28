@@ -14,7 +14,7 @@ const RoundedBtn = () => {
 const index = () => {
   return (
     <>
-      <section>
+      <section className="heroSection">
         <div className="leftSide">
           <div className="category">
             <h3>Mindfullness</h3>

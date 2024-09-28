@@ -4,247 +4,273 @@ $black-300: #b5b5b5;
 $black-200: #dddddd;
 $white: #fcfcfc;
 
-.categorySection,
-.doctorSection,
-.dntSection {
-  display: flex;
-  flex-direction: column;
-  padding: 0;
-  width: 100%;
-  align-items: center;
-}
-
-.heading-1 {
-  padding: 32px 5vw 0 5vw;
-  font-size: 32px;
-  font-weight: 100;
-  color: $black;
-}
-
-.body-1 {
-  font-weight: 100;
-  font-size: 20px;
-  color: $black-300;
-  margin-bottom: 16px;
-}
-
-.categorySection {
-  padding: 0 5vw;
-  margin: 32px 0 32px 0;
-
-  .categories {
-    padding: 32px;
-    width: 100%;
-    height: fit-content;
-    border-radius: 16px;
-    background-color: $white;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-
-    .container {
+.appointmentSection {
+  padding: 64px 0;
+  .heading {
+    h1 {
+      font-size: 64px;
+      font-weight: 100;
       display: flex;
-      flex-wrap: wrap;
-      .category {
-        box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        height: fit-content;
-        padding: 4px 16px;
-        width: fit-content;
+      align-items: center;
+      justify-content: center;
+
+      p {
+        background-image: url("/public/brain.jpg");
+        background-size: cover;
+        background-position: left;
+        width: 200px;
+        height: 64px;
+        border-radius: 64px;
+      }
+    }
+
+    h1:nth-of-type(2) {
+      span {
+        background: linear-gradient(45deg, #4136f1, #8743ff);
+        color: $white;
+        transform: rotate(10deg);
+        padding: 8px 32px;
+        border-radius: 64px;
+        margin-left: 16px;
+        margin-top: 16px;
+      }
+    }
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    width: 400px;
+    height: fit-content;
+
+    .wrapper {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+
+      img {
+        background-color: $black;
+        padding: 16px;
         border-radius: 32px;
-        margin: 4px;
+        transform: rotate(-135deg);
+      }
 
-        .category-icon {
-          padding: 0;
-          display: flex;
-          align-items: center;
-          height: fit-content;
-        }
+      h3 {
+        font-size: 40px;
+        font-weight: 100;
+        color: $black;
+      }
+    }
 
-        h2 {
-          font-weight: 600;
-          font-size: 14px;
-          color: $black;
-        }
+    p {
+      font-size: 32px;
+      font-weight: 100;
+      color: $black-400;
+    }
+  }
 
-        img {
-          width: 32px;
-          height: 32px;
-          object-fit: cover;
-          border-radius: 100px;
-        }
+  .card {
+    padding: 64px 0 0 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    .container {
+      width: 300px;
+      height: 400px;
+      position: relative;
+      img {
+        position: relative;
+        z-index: 5;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 16px;
+      }
+
+      div {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        border-radius: 16px;
+      }
+
+      .one {
+        transform: rotate(-5deg);
+        background-color: #4136f1;
+        z-index: 4;
+      }
+
+      .second {
+        transform: rotate(-10deg);
+        background-color: #623cf8;
+        z-index: 3;
+      }
+
+      .third {
+        transform: rotate(-15deg);
+        background-color: #8743ff;
+        z-index: 2;
       }
     }
   }
 }
 
-.doctorSection {
-  padding: 0 5vw 0 5vw;
+.consultantSection {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding: 32px 0;
 
-  .doctors {
-    width: 100%;
-    background-color: $white;
-    padding: 32px;
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-    border-radius: 16px;
+  .text {
+    width: 500px;
+    height: 100%;
+    margin-right: 32px;
+
+    h1 {
+      font-weight: 100;
+      font-size: 64px;
+      color: $black;
+    }
+
+    p {
+      font-size: 12px;
+      width: 60%;
+      color: $black-400;
+    }
   }
-  .container {
+
+  .wrapper {
+    width: fit-content;
+    height: fit-content;
     display: flex;
     flex-wrap: wrap;
-    gap: 16px;
-    .doctor {
-      width: fit-content;
-      display: flex;
-      box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
-      padding: 16px;
-      border-radius: 16px;
-      gap: 32px;
+    flex-shrink: 4;
+    flex-direction: column;
 
-      .container {
+    .row {
+      display: flex;
+
+      .consultant {
+        width: fit-content;
+        margin: 4px;
+
+        img {
+          width: 150px;
+          height: 150px;
+          object-fit: cover;
+          object-position: top;
+        }
+      }
+    }
+
+    .top {
+      .user1 {
+        border-radius: 100px 100px 0 100px;
+      }
+      .user2 {
+        border-radius: 100px 100px 100px 0;
+      }
+    }
+
+    .bot {
+      .user3 {
+        border-radius: 100px 0 100px 100px;
+      }
+      .user4 {
+        border-radius: 0 100px 100px 100px;
+      }
+    }
+  }
+}
+
+.optionSection {
+  padding: 80px 0;
+  .container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 64px;
+
+    .card {
+      width: 450px;
+      padding: 32px;
+      border-radius: 16px;
+      height: fit-content;
+      display: flex;
+      justify-content: space-between;
+      box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+        rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+
+      .left {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
 
-        .wrapper-2 {
+        h1 {
+          font-weight: 100;
+        }
+
+        button {
+          background-color: transparent;
+          border: none;
           display: flex;
           align-items: center;
-          gap: 8px;
+          color: $black;
+          gap: 16px;
+          cursor: pointer;
 
-          p {
-            color: $black;
+          img {
+            transform: rotate(-135deg);
+            padding: 8px;
+            border-radius: 32px;
+            background-color: $black;
           }
         }
+      }
 
-        h2 {
-          font-size: 20px;
-          font-weight: 600;
-          color: $black;
-          margin-bottom: 8px;
-        }
-        h3 {
-          font-size: 16px;
-          font-weight: 100;
-          color: $black-300;
-        }
-
+      .right {
         img {
-          width: 25px;
-          height: 25px;
+          width: 100px;
+          height: 100px;
           object-fit: cover;
         }
       }
-
-      img {
-        width: 90px;
-        height: 100px;
-        object-fit: cover;
-        border-radius: 16px;
-      }
     }
-  }
-}
 
-.dntSection {
-  padding: 0 5vw 0 5vw;
-  margin: 10vh 0;
-
-  .dnt {
-    width: 100%;
-    padding: 32px 5vw 32px 5vw;
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-    border-radius: 16px;
-
-    .dates {
-      display: flex;
-      justify-content: space-between;
-      width: 700px;
-      margin-top: 16px;
-
-      .date {
-        width: 70px;
-        padding: 8px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
-        .container {
-          width: 100%;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          margin-bottom: 24px;
-          padding: 8px 32px;
-
-          h1 {
-            font-size: 20px;
-            font-weight: 100;
-            color: $black;
-          }
-
-          p {
-            padding: 8px 0;
-            font-size: 16px;
-            font-weight: 600;
-          }
-        }
-
-        .selected {
-          background-color: $black;
-          border-radius: 16px;
+    .cRight {
+      background: linear-gradient(
+        45deg,
+        rgba(65, 54, 241, 0.7),
+        rgba(135, 67, 255, 0.7)
+      );
+      backdrop-filter: blur(10px);
+      .left {
+        h1 {
           color: $white;
-
-          h1 {
-            color: $white;
-          }
         }
 
-        .time-options {
-          display: flex;
-          flex-direction: column;
-          gap: 24px;
-
-          .time {
-            padding: 8px 16px;
-            background-color: $black-200;
-            border-radius: 16px;
-            height: 32px;
-            display: flex;
-            align-items: center;
-          }
+        button {
+          color: $white;
         }
       }
     }
 
-    .bookNow {
-      display: flex;
-      align-items: center;
-      width: fit-content;
-      height: 100px;
-      padding: 4px 4px 4px 32px;
-      border-radius: 16px;
-      box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-
-      h2 {
-        padding: 0 64px 0 0;
-        margin: 0;
-      }
-
-      button {
-        display: flex;
-        align-items: center;
-        width: 100%;
-        height: 100%;
-        margin: 0;
-        padding: 8px 32px;
-        border-radius: 16px;
-        font-size: 18px;
-        background-color: #155bff;
-        color: $white;
-        border: none;
+    .cLeft {
+      background-color: $white;
+      .left {
+        button {
+          img {
+            background: linear-gradient(
+              45deg,
+              rgba(65, 54, 241, 0.7),
+              rgba(135, 67, 255, 0.7)
+            );
+            backdrop-filter: blur(10px);
+          }
+        }
       }
     }
   }
