@@ -1,5 +1,6 @@
 import "../components/styles/lifeCoach.scss";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 const LifeCoach = () => {
   return (
@@ -8,8 +9,8 @@ const LifeCoach = () => {
       <section className="bannerSection">
         <div className="container">
           <h1>
-            Consult with a <br />
-            <span>Life Coach</span>
+            Unlock Your True <span>Potential</span> with a Professional Life
+            Coach
           </h1>
           <p>
             Merasa Down? Bingung Pilih Karir? Stres dengan Tugas? Kecanduan
@@ -34,77 +35,89 @@ const LifeCoach = () => {
               <h1>3</h1>
               <h1>tanda kamu butuh Konseling dengan Psikolog</h1>
             </div>
-            <div className="card">
-              <p>
-                Menyakiti atau membahayakan diri sendiri (e.g: Merasa harga diri
-                rendah, pikiran yang menyakiti diri sendiri, gangguan nafsu
-                makan)
-              </p>
-            </div>
-            <div className="card">
-              <p>
-                Menyakiti atau membahayakan orang lain (e.g: Sulit mengontrol
-                emosi hingga melakukan kekerasan kepada orang lain)
-              </p>
-            </div>
-            <div className="card">
-              <p>
-                Mengganggu kehidupan sehari-hari (e.g: Tidak bisa tidur sehingga
-                sulit fokus di pekerjaan, hilang nafsu makan hingga sakit fisik)
-              </p>
+            <div className="containerCard">
+              <div className="card">
+                <p>
+                  Menyakiti atau membahayakan diri sendiri (e.g: Merasa harga
+                  diri rendah, pikiran yang menyakiti diri sendiri, gangguan
+                  nafsu makan)
+                </p>
+              </div>
+              <div className="card">
+                <p>
+                  Menyakiti atau membahayakan orang lain (e.g: Sulit mengontrol
+                  emosi hingga melakukan kekerasan kepada orang lain)
+                </p>
+              </div>
+              <div className="card">
+                <p>
+                  Mengganggu kehidupan sehari-hari (e.g: Tidak bisa tidur
+                  sehingga sulit fokus di pekerjaan, hilang nafsu makan hingga
+                  sakit fisik)
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       <section className="scheaduleSection">
+        <h1 className="heading">Jadwal Terdekat</h1>
         <div className="container">
           <div className="card">
-            <h3>Senin</h3>
+            <h3>Monday</h3>
             <h3>30 SEP</h3>
             <div className="status">
-              <h2>8/25</h2>
-              <h2>Booked</h2>
+              <h2>10/25</h2>
+              <h3>Booked</h3>
             </div>
           </div>
           <div className="card">
-            <h3>Senin</h3>
-            <h3>30 SEP</h3>
+            <h3>Tuesday</h3>
+            <h3>1 OCT</h3>
             <div className="status">
-              <h2>8/25</h2>
-              <h2>Booked</h2>
+              <h2>15/25</h2>
+              <h3>Booked</h3>
             </div>
           </div>
           <div className="card">
-            <h3>Senin</h3>
-            <h3>30 SEP</h3>
+            <h3>Wednesday</h3>
+            <h3>2 OCT</h3>
             <div className="status">
-              <h2>8/25</h2>
-              <h2>Booked</h2>
+              <h2>20/25</h2>
+              <h3>Booked</h3>
             </div>
           </div>
           <div className="card">
-            <h3>Senin</h3>
-            <h3>30 SEP</h3>
+            <h3>Thursday</h3>
+            <h3>3 OCT</h3>
             <div className="status">
-              <h2>8/25</h2>
-              <h2>Booked</h2>
+              <h2>18/25</h2>
+              <h3>Booked</h3>
             </div>
           </div>
           <div className="card">
-            <h3>Senin</h3>
-            <h3>30 SEP</h3>
+            <h3>Friday</h3>
+            <h3>4 OCT</h3>
             <div className="status">
-              <h2>8/25</h2>
-              <h2>Booked</h2>
+              <h2>22/25</h2>
+              <h3>Booked</h3>
             </div>
           </div>
           <div className="card">
-            <h3>Senin</h3>
-            <h3>30 SEP</h3>
+            <h3>Saturday</h3>
+            <h3>5 OCT</h3>
             <div className="status">
-              <h2>8/25</h2>
-              <h2>Booked</h2>
+              <h2>5/25</h2>
+              <h3>Booked</h3>
+            </div>
+          </div>
+          <div className="card">
+            <h3>Sunday</h3>
+            <h3>6 OCT</h3>
+            <div className="status">
+              <h2>12/25</h2>
+              <h3>Booked</h3>
             </div>
           </div>
         </div>
@@ -203,6 +216,7 @@ const LifeCoach = () => {
           </div>
         </div>
       </section>
+      <Footer />
     </>
   );
 };

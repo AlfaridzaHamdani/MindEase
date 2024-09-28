@@ -5,14 +5,11 @@ $black-200: #dddddd;
 $white: #fcfcfc;
 
 .serviceSection {
-  position: relative;
-  padding: 32px 5vw 80px 5vw;
-  background-color: $white;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 40px;
-  width: 100%;
+  padding: 0 5vw 0 5vw;
 
   .heading {
     display: flex;
@@ -262,9 +259,6 @@ $white: #fcfcfc;
 
 @media (min-width: 1200px) {
   .serviceSection {
-    width: 1100px;
-    padding: 0;
-
     .heading {
       h1 {
         font-size: 40px;
