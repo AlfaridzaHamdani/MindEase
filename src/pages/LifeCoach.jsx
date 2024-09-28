@@ -110,11 +110,97 @@ const LifeCoach = () => {
         </div>
       </section>
 
-      <section className="pricing">
+      <section className="pricingSection">
+        <h1 className="heading">Choose your right plan</h1>
+
         <div className="container">
-          <div className="card"></div>
-          <div className="card"></div>
-          <div className="card"></div>
+          <div className="card">
+            <div className="top">
+              <div className="level">
+                <p>Pro</p>
+              </div>
+              <p className="desc">
+                A bridge for those seeking to consult their mental health with
+                qualified psychologists and experts.{" "}
+              </p>
+            </div>
+            <div className="price">
+              <h1>
+                $8 <h2>/session</h2>
+              </h1>
+              <hr />
+            </div>
+            <div className="feature">
+              <ul>
+                <li>Assesmen Pra-konseling</li>
+                <li>Lembar Kerja (Worksheet)</li>
+                <li>Tes Kesehatan Mental</li>
+                <li>Tes Kepribadian</li>
+              </ul>
+            </div>
+            <div className="cta">
+              <hr />
+              <button>I want This One!</button>
+            </div>
+          </div>
+          <div className="card">
+            <div className="top">
+              <div className="level">
+                <p>Pro Plus</p>
+              </div>
+              <p className="desc">
+                A bridge for those seeking to consult their mental health with
+                qualified psychologists and experts.{" "}
+              </p>
+            </div>
+            <div className="price">
+              <h1>
+                $12 <h2>/session</h2>
+              </h1>
+              <hr />
+            </div>
+            <div className="feature">
+              <ul>
+                <li>Assesmen Pra-konseling</li>
+                <li>Lembar Kerja (Worksheet)</li>
+                <li>Tes Kesehatan Mental</li>
+                <li>Tes Kepribadian</li>
+              </ul>
+            </div>
+            <div className="cta">
+              <hr />
+              <button>I want This One!</button>
+            </div>
+          </div>
+          <div className="card">
+            <div className="top">
+              <div className="level">
+                <p>Pro Bundling</p>
+              </div>
+              <p className="desc">
+                A bridge for those seeking to consult their mental health with
+                qualified psychologists and experts.{" "}
+              </p>
+            </div>
+            <div className="price">
+              <h1>
+                $59 <h2>/session</h2>
+              </h1>
+              <hr />
+            </div>
+            <div className="feature">
+              <ul>
+                <li>Assesmen Pra-konseling</li>
+                <li>Lembar Kerja (Worksheet)</li>
+                <li>Tes Kesehatan Mental</li>
+                <li>Tes Kepribadian</li>
+              </ul>
+            </div>
+            <div className="cta">
+              <hr />
+              <button>I want This One!</button>
+            </div>
+          </div>
         </div>
       </section>
     </>

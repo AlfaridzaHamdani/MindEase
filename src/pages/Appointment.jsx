@@ -1,6 +1,7 @@
 import "../components/styles/appointment.scss";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { useState } from "react";
 
 const Consultant = (image) => {
   return (
@@ -10,8 +11,54 @@ const Consultant = (image) => {
   );
 };
 
+const Question = ({ question, answer, isActive, onClick }) => {
+  return (
+    <div className="question">
+      <h1 onClick={onClick} style={{ cursor: "pointer" }}>
+        {question}
+      </h1>
+      {isActive && <p>{answer}</p>}
+    </div>
+  );
+};
+
 const Appointment = () => {
   const consultant = ["user1", "user2", "user3", "user4"];
+  const faqs = [
+    {
+      question:
+        "What is the purpose of this mental health consultation service?",
+      answer:
+        "Our service provides access to professional mental health counselors who offer personalized guidance and support for a variety of mental health concerns.",
+    },
+    {
+      question: "How do I book a consultation with a mental health expert?",
+      answer:
+        "You can book a consultation by selecting a counselor from our platform, choosing a date and time, and confirming the appointment through our booking system.",
+    },
+    {
+      question: "Are the consultations confidential?",
+      answer:
+        "Yes, all consultations are strictly confidential to ensure your privacy and comfort.",
+    },
+    {
+      question: "What types of mental health issues can be addressed?",
+      answer:
+        "Our experts can help with anxiety, depression, stress management, relationship issues, and more.",
+    },
+    {
+      question: "How much does a consultation cost?",
+      answer:
+        "The cost varies depending on the counselor and session length, and all fees are transparently listed before booking.",
+    },
+  ];
+
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const handleClick = (index) => {
+    setActiveIndex(activeIndex === index ? null : index);
+  };
+
   return (
     <>
       <Navbar />
@@ -151,97 +198,21 @@ const Appointment = () => {
         </div>
       </section>
 
-      <section className="pricingSection">
-        <h1 className="heading">Choose your right plan</h1>
-
-        <div className="container">
-          <div className="card">
-            <div className="top">
-              <div className="level">
-                <p>Pro</p>
-              </div>
-              <p className="desc">
-                A bridge for those seeking to consult their mental health with
-                qualified psychologists and experts.{" "}
-              </p>
-            </div>
-            <div className="price">
-              <h1>
-                $8 <h2>/session</h2>
-              </h1>
-              <hr />
-            </div>
-            <div className="feature">
-              <ul>
-                <li>Assesmen Pra-konseling</li>
-                <li>Lembar Kerja (Worksheet)</li>
-                <li>Tes Kesehatan Mental</li>
-                <li>Tes Kepribadian</li>
-              </ul>
-            </div>
-            <div className="cta">
-              <hr />
-              <button>I want This One!</button>
-            </div>
-          </div>
-          <div className="card">
-            <div className="top">
-              <div className="level">
-                <p>Pro Plus</p>
-              </div>
-              <p className="desc">
-                A bridge for those seeking to consult their mental health with
-                qualified psychologists and experts.{" "}
-              </p>
-            </div>
-            <div className="price">
-              <h1>
-                $12 <h2>/session</h2>
-              </h1>
-              <hr />
-            </div>
-            <div className="feature">
-              <ul>
-                <li>Assesmen Pra-konseling</li>
-                <li>Lembar Kerja (Worksheet)</li>
-                <li>Tes Kesehatan Mental</li>
-                <li>Tes Kepribadian</li>
-              </ul>
-            </div>
-            <div className="cta">
-              <hr />
-              <button>I want This One!</button>
-            </div>
-          </div>
-          <div className="card">
-            <div className="top">
-              <div className="level">
-                <p>Pro Bundling</p>
-              </div>
-              <p className="desc">
-                A bridge for those seeking to consult their mental health with
-                qualified psychologists and experts.{" "}
-              </p>
-            </div>
-            <div className="price">
-              <h1>
-                $59 <h2>/session</h2>
-              </h1>
-              <hr />
-            </div>
-            <div className="feature">
-              <ul>
-                <li>Assesmen Pra-konseling</li>
-                <li>Lembar Kerja (Worksheet)</li>
-                <li>Tes Kesehatan Mental</li>
-                <li>Tes Kepribadian</li>
-              </ul>
-            </div>
-            <div className="cta">
-              <hr />
-              <button>I want This One!</button>
-            </div>
-          </div>
+      <section className="faqSection">
+        <div className="left">
+          <h1>Frequenlty asked questions</h1>
+          <p>Still need help? Chat to us.</p>
+        </div>
+        <div className="right">
+          {faqs.map((faq, index) => (
+            <Question
+              key={index}
+              question={faq.question}
+              answer={faq.answer}
+              isActive={activeIndex === index}
+              onClick={() => handleClick(index)}
+            />
+          ))}
         </div>
       </section>
 
