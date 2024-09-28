@@ -4,12 +4,6 @@ import "./styles.scss";
 const index = () => {
   return (
     <div className="registration-form">
-      <h1>Pendaftaran Konseling</h1>
-      <div className="progress-bar">
-        <div className="step completed">Paket</div>
-        <div className="step active">Profil</div>
-        <div className="step">Pembayaran</div>
-      </div>
       <div className="login-prompt">
         Sudah punya akun? <a href="#">Klik di sini untuk masuk</a>
       </div>

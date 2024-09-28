@@ -65,12 +65,6 @@ const index = () => {
 
   return (
     <div className="app">
-      <h1>Pendaftaran Konseling</h1>
-      <div className="steps">
-        <span className="step">Pilih Paket Konseling</span>
-        <span className="step active">Pilih</span>
-        <span className="step">Pembayaran</span>
-      </div>
       <div className="service-cards">
         {services.map((service, index) => (
           <div className="service-card" key={index}>
