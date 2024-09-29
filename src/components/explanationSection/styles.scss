@@ -9,16 +9,19 @@ $white: #fcfcfc;
   display: flex;
   flex-direction: column;
   justify-content: start;
-  padding: 0 0 160px 0;
+  padding: 0 5vw 160px 5vw;
 
   h1 {
     font-size: 40px;
     font-weight: 100;
     padding: 0 0 40px 0;
+    text-align: center;
   }
   .container {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
+    gap: 80px;
+
     img {
       width: 400px;
       height: 400px;
