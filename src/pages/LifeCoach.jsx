@@ -36,7 +36,6 @@ const LifeCoach = () => {
   return (
     <>
       <Heading />
-      <Navbar />
       <section className="bannerSection">
         <div className="left">
           <p>

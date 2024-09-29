@@ -64,7 +64,6 @@ const Appointment = () => {
   return (
     <>
       <Heading />
-      <Navbar />
       <section className="appointmentSection">
         <div className="heading">
           <h1>

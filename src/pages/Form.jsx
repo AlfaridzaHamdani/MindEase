@@ -14,8 +14,6 @@ const Form = () => {
 
   return (
     <>
-      <Navbar />
-
       <ProgressBar
         currentStep={currentStep}
         handleStepChange={handleStepChange}

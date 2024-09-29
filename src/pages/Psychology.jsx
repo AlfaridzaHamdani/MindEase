@@ -36,7 +36,6 @@ const Psychology = () => {
   return (
     <>
       <Heading />
-      <Navbar />
       <section className="bannerSection">
         <div className="left">
           <p>
