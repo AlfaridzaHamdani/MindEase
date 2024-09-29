@@ -2,6 +2,7 @@ import "../components/styles/appointment.scss";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Consultant = (image) => {
   return (
@@ -99,9 +100,9 @@ const Appointment = () => {
 
       <section className="optionSection">
         <div className="container">
-          <div className="card cLeft">
+          <Link to={"/appointment/psychology"} className="card cLeft">
             <div className="left">
-              <h1>Psycology</h1>
+              <h1>Psychology</h1>
               <div className="container">
                 <ul>
                   <li>S2 Physchologist Consult</li>
@@ -115,8 +116,8 @@ const Appointment = () => {
                 <img src="./Arrow.svg" alt="" />
               </button>
             </div>
-          </div>
-          <div className="card cRight">
+          </Link>
+          <Link to={"/appointment/life-coach"} className="card cRight">
             <div className="left">
               <h1>Life Coach</h1>
               <div className="container">
@@ -132,7 +133,7 @@ const Appointment = () => {
                 <img src="./Arrow.svg" alt="" />
               </button>
             </div>
-          </div>
+          </Link>
         </div>
       </section>
 
