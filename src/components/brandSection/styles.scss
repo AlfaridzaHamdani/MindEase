@@ -24,10 +24,30 @@ $white: #fcfcfc;
     gap: 32px;
     padding: 32px 0;
 
+    @media (max-width: 768px) {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+    }
+
     img {
       height: 70px;
-      width: 150px;
-      background-color: $black-300;
+      width: auto;
+      filter: grayscale(100%);
+
+      @media (max-width: 768px) {
+        height: 50px;
+        width: auto;
+      }
+
+      @media (max-width: 480px) {
+        height: 40px;
+        width: auto;
+      }
+    }
+    // img hover
+    img:hover {
+      filter: grayscale(0%);
     }
   }
 }

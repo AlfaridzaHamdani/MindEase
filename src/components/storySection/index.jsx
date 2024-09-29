@@ -1,43 +1,86 @@
 import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./styles.scss";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const Index = () => {
   const panels = useRef([]);
   const panelsContainer = useRef();
+  const [currentPanel, setCurrentPanel] = useState(0);
 
   const createPanelsRefs = (panel, index) => {
     panels.current[index] = panel;
   };
 
+  // Function to navigate panels
+  const goToPanel = (index) => {
+    if (index >= 0 && index < panels.current.length) {
+      setCurrentPanel(index); // Update the state for the current panel
+      gsap.to(panels.current, {
+        xPercent: -100 * index, // Animate each panel by -100% of its width per index
+        duration: 0.75,
+        ease: "power1.inOut",
+      });
+    }
+  };
+
+  // Handle Next button click
+  const handleNext = () => {
+    if (currentPanel < panels.current.length - 1) {
+      goToPanel(currentPanel + 1);
+    }
+  };
+
+  // Handle Previous button click
+  const handlePrevious = () => {
+    if (currentPanel > 0) {
+      goToPanel(currentPanel - 1);
+    }
+  };
+
   useEffect(() => {
+    // Initial GSAP animation for scroll-triggered panel navigation (if needed)
     gsap.to(panels.current, {
-      xPercenet: -100 * (panels.current.length - 1),
+      xPercent: -100 * (panels.current.length - 1),
       ease: "none",
-      ScrollTrigger: {
-        trigger: panelsContainer.current,
-        pin: true,
-        scrub: 1,
-        snap: 1 / (panels.current.length - 1),
-        end: () => "+=" + panelsContainer.current.offsetWidth,
-      },
     });
   }, []);
 
   return (
     <section className="storySection">
       <h1 className="heading">Our Story</h1>
-      <div className="containerStory">
-        <div className="card">
-          <button>
-            <img className="left" src="/Arrow.svg" alt="" />
-          </button>
-          <button>
-            <img className="right" src="/Arrow.svg" alt="" />
-          </button>
+      <div className="containerStory" ref={panelsContainer}>
+        <div className="panel" ref={(el) => createPanelsRefs(el, 0)}>
+          <div className="card">
+            <button className="left-button" onClick={handlePrevious}>
+              <img className="left" src="/Arrow.svg" alt="Previous" />
+            </button>
+            <p>Panel 1: Our beginning...</p>
+            <button className="right-button" onClick={handleNext}>
+              <img className="right" src="/Arrow.svg" alt="Next" />
+            </button>
+          </div>
+        </div>
+        <div className="panel" ref={(el) => createPanelsRefs(el, 1)}>
+          <div className="card">
+            <button className="left-button" onClick={handlePrevious}>
+              <img className="left" src="/Arrow.svg" alt="Previous" />
+            </button>
+            <p>Panel 2: Our Growth...</p>
+            <button className="right-button" onClick={handleNext}>
+              <img className="right" src="/Arrow.svg" alt="Next" />
+            </button>
+          </div>
+        </div>
+        <div className="panel" ref={(el) => createPanelsRefs(el, 2)}>
+          <div className="card">
+            <button className="left-button" onClick={handlePrevious}>
+              <img className="left" src="/Arrow.svg" alt="Previous" />
+            </button>
+            <p>Panel 3: Our Future...</p>
+            <button className="right-button" onClick={handleNext}>
+              <img className="right" src="/Arrow.svg" alt="Next" />
+            </button>
+          </div>
         </div>
       </div>
     </section>
