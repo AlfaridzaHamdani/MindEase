@@ -42,7 +42,7 @@ $blue: #4136f1;
     align-items: center;
 
     .element {
-      background-color: #4136f1;
+      background-color: $blue;
     }
 
     .el1 {
@@ -54,6 +54,7 @@ $blue: #4136f1;
       height: 400px;
       border-radius: 75px 75px 0 0;
     }
+
     .el2 {
       background: linear-gradient(to bottom, #8743ff, #feb47b00);
       position: absolute;
@@ -93,6 +94,7 @@ $blue: #4136f1;
       height: 150px;
       border-radius: 75px 75px 75px 0;
     }
+
     .el6 {
       background: linear-gradient(to bottom, #4136f1, #feb47b00);
       position: absolute;
@@ -165,6 +167,13 @@ $blue: #4136f1;
         button {
           width: 100%;
         }
+      }
+
+      .el2,
+      .el3,
+      .el5,
+      .el6 {
+        display: none;
       }
     }
   }
