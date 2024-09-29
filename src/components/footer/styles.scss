@@ -9,7 +9,8 @@ $blue: #4136f1;
   padding: 32px 5vw;
   display: flex;
   justify-content: space-between;
-  height: 250px;
+  height: auto;
+  flex-wrap: wrap;
 
   li {
     list-style: none;
@@ -27,11 +28,15 @@ $blue: #4136f1;
       align-items: center;
       gap: 8px;
       margin-bottom: 16px;
+
+      img {
+        max-width: 100px; /* Adjust logo size */
+      }
     }
   }
 
   &__right {
-    flex-basis: 40%;
+    flex-basis: 60%;
     display: flex;
     justify-content: space-between;
 
@@ -49,6 +54,78 @@ $blue: #4136f1;
         margin-bottom: 8px;
         color: $black-400;
       }
+    }
+  }
+
+  /* Responsive design */
+  @media (max-width: 1024px) {
+    padding: 32px 4vw;
+
+    &__left {
+      flex-basis: 35%;
+    }
+
+    &__right {
+      flex-basis: 60%;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    &__right__link {
+      flex-basis: 30%;
+      margin-bottom: 24px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding: 24px 3vw;
+    align-items: center;
+    text-align: center;
+
+    &__left {
+      flex-basis: 100%;
+      margin-bottom: 32px;
+    }
+
+    &__right {
+      flex-basis: 100%;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    &__right__link {
+      flex-basis: 30%;
+      margin-bottom: 16px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    padding: 16px 4vw;
+
+    &__left__wrapperLogo {
+      img {
+        width: 60px;
+      }
+
+      h3 {
+        font-size: 18px;
+      }
+    }
+
+    &__right__link {
+      flex-basis: 100%;
+      margin-bottom: 24px;
+    }
+
+    &__right__link h3 {
+      font-size: 18px;
+    }
+
+    &__right__link li {
+      font-size: 12px;
     }
   }
 }
