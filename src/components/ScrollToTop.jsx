@@ -1,14 +1,18 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { useLenis } from "@studio-freight/react-lenis";
 
 const ScrollToTop = () => {
-  const { pathname } = useLocation(); // Mendapatkan pathname dari URL
+  const { pathname } = useLocation();
+  const lenis = useLenis();
 
   useEffect(() => {
-    window.scrollTo(0, 0); // Mengatur posisi scroll ke atas (x=0, y=0)
-  }, [pathname]); // Efek akan berjalan setiap kali pathname berubah (navigasi berubah)
+    if (lenis) {
+      lenis.scrollTo(0, { duration: 0.5 });
+    }
+  }, [pathname, lenis]);
 
-  return null; // Komponen ini tidak perlu merender apapun
+  return null;
 };
 
 export default ScrollToTop;

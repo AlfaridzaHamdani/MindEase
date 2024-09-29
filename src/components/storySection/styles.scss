@@ -20,7 +20,6 @@ $white: #fcfcfc;
 
   .containerStory {
     width: 100%;
-    height: 500px;
     display: flex;
     overflow: hidden;
     position: relative;
@@ -28,12 +27,11 @@ $white: #fcfcfc;
     .panel {
       flex: none;
       width: 100%;
-      height: 100%;
+      height: fit-content;
       position: relative;
       display: flex;
       justify-content: center;
       align-items: center;
-      background: linear-gradient(to right, #7b3ff2, #4136f1);
       color: $white;
 
       .card {
@@ -47,6 +45,7 @@ $white: #fcfcfc;
         width: 100%;
         height: auto;
         box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+        background: linear-gradient(to right, #7b3ff2, #4136f1);
 
         p {
           text-align: center;

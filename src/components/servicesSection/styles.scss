@@ -18,10 +18,13 @@ $white: #fcfcfc;
     gap: 16px;
     width: 100%;
 
-    h1 {
-      width: 30%;
-      font-size: 40px;
-      font-weight: 100;
+    .textReveal {
+      width: 100%;
+      h1 {
+        width: 100%;
+        font-size: 40px;
+        font-weight: 100;
+      }
     }
 
     button {
@@ -37,10 +40,21 @@ $white: #fcfcfc;
       display: flex;
       align-items: center;
       gap: 8px;
+      transition: box-shadow 0.5s;
 
       img {
         transform: rotate(-135deg);
+        transition: transform 0.5s;
       }
+    }
+
+    button:hover {
+      box-shadow: rgba(65, 54, 241, 0.48) 6px 2px 16px 0px,
+        rgba(135, 67, 255, 0.8) -6px -2px 16px 0px;
+    }
+
+    button:hover img {
+      transform: rotate(225deg);
     }
   }
 

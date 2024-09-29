@@ -1,8 +1,9 @@
 import "../components/styles/lifeCoach.scss";
-import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Heading from "../components/heading";
 import { Link } from "react-router-dom";
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
 
 const Schedule = ({ day, date, month, booked }) => {
   return (
@@ -32,6 +33,60 @@ const LifeCoach = () => {
     { day: "Saturday", date: 5, month: "OCT", booked: 5 },
     { day: "Sunday", date: 6, month: "OCT", booked: 25 },
   ];
+
+  const maskRef = useRef(null);
+  const contentRef = useRef(null);
+
+  useEffect(() => {
+    const mask = maskRef.current;
+    const content = contentRef.current;
+
+    gsap.set(mask, { xPercent: -50, yPercent: -50 });
+
+    const moveMask = (e) => {
+      const bounds = content.getBoundingClientRect();
+
+      if (
+        e.clientX >= bounds.left &&
+        e.clientX <= bounds.right &&
+        e.clientY >= bounds.top &&
+        e.clientY <= bounds.bottom
+      ) {
+        mask.style.display = "block";
+        gsap.to(mask, {
+          x: e.clientX,
+          y: e.clientY,
+          duration: 0.3,
+          ease: "power2.out",
+        });
+      } else {
+        mask.style.display = "none";
+      }
+    };
+
+    const handleScroll = () => {
+      const bounds = content.getBoundingClientRect();
+      const x = window.innerWidth / 2;
+      const y = window.innerHeight / 2;
+
+      if (
+        x < bounds.left ||
+        x > bounds.right ||
+        y < bounds.top ||
+        y > bounds.bottom
+      ) {
+        mask.style.display = "none";
+      }
+    };
+
+    window.addEventListener("mousemove", moveMask);
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("mousemove", moveMask);
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     <>
@@ -176,7 +231,7 @@ const LifeCoach = () => {
               <button>I want This One!</button>
             </div>
           </div>
-          <div className="card">
+          <div className="card proBundling">
             <div className="top">
               <div className="level">
                 <p>Pro Bundling</p>
@@ -252,8 +307,10 @@ const LifeCoach = () => {
         </div>
       </section>
 
-      <section className="ctaSectionAppoinment">
-        <div className="container">
+      <div ref={maskRef} className="mask-cursor"></div>
+
+      <section className="ctaSectionAppoinment content">
+        <div className="container" ref={contentRef}>
           <h1>
             Got a problem? Don’t keep it to yourself. Reach out to a
             psychologist at MindEase for help.

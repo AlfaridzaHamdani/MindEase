@@ -16,7 +16,7 @@ const index = () => {
       <Link to={"/"} className="headingContainer">
         <img src={imgSrc} alt="Logo" />
         <div className="logoWrapper">
-          <h1 className="logo">MindEase</h1>
+          <h2 className="logo">MindEase</h2>
           <h2 className="subLogo">MentalHealthCare</h2>
         </div>
       </Link>

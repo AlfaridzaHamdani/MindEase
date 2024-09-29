@@ -23,7 +23,7 @@ const BrandSection = () => {
       <hr />
       <div className="brand-logos">
         {images.map((image, index) => (
-          <img key={index} src={image.src} alt={image.alt} />
+          <img key={index} src={image.src} alt={image.alt} loading="lazy" />
         ))}
       </div>
       <hr />

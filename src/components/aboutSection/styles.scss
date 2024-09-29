@@ -4,23 +4,31 @@ $black-300: #b5b5b5;
 $black-200: #dddddd;
 $white: #fcfcfc;
 $blue: #4136f1;
+$padding-large: 32px 64px;
+$padding-medium: 24px;
+$padding-small: 16px;
+$font-size-large: 36px;
+$font-size-medium: 32px;
+$font-size-small: 24px;
+$font-size-xsmall: 14px;
+$border-radius: 32px;
 
 .aboutSection {
-  padding: 32px 64px;
+  padding: $padding-large;
   width: 100%;
   display: flex;
   flex-direction: column;
 
   @media (max-width: 768px) {
-    padding: 24px;
+    padding: $padding-medium;
   }
 
   h1 {
     color: $blue;
-    font-size: 36px;
+    font-size: $font-size-large;
 
     @media (max-width: 768px) {
-      font-size: 28px;
+      font-size: $font-size-small;
       text-align: center;
     }
   }
@@ -41,22 +49,27 @@ $blue: #4136f1;
         text-align: center;
       }
 
-      h2 {
-        line-height: 150%;
-        font-size: 32px;
+      .textReveal {
+        h2 {
+          line-height: 150%;
+          font-size: $font-size-medium;
 
-        @media (max-width: 768px) {
-          font-size: 24px;
+          @media (max-width: 768px) {
+            font-size: $font-size-small;
+          }
+
+          span {
+            color: $blue;
+          }
         }
+      }
 
-        span:nth-of-type(1) {
-          color: $blue;
-        }
-
-        span:nth-of-type(2) {
-          border: #4136f1 2px solid;
+      .textReveal:nth-of-type(2) {
+        span {
+          border: $blue 2px solid;
           border-radius: 20px;
           padding: 4px 16px;
+          color: $black;
 
           @media (max-width: 768px) {
             display: inline-block;
@@ -67,27 +80,27 @@ $blue: #4136f1;
 
       p {
         margin-top: 32px;
-        font-size: 14px;
+        font-size: $font-size-xsmall;
         width: 500px;
         color: $black-400;
 
         @media (max-width: 768px) {
           width: 100%;
-          font-size: 14px;
         }
       }
 
       button {
         display: flex;
         align-items: center;
-        padding: 16px 32px;
+        padding: $padding-small 32px;
         color: $white;
-        background: linear-gradient(90deg, #4136f1 0%, #7b3ff2 100%);
-        border-radius: 32px;
+        background: linear-gradient(90deg, $blue 0%, #7b3ff2 100%);
+        border-radius: $border-radius;
         gap: 16px;
         border: none;
         margin: 32px 0;
         font-size: 16px;
+        transition: box-shadow 0.5s;
 
         @media (max-width: 768px) {
           justify-content: center;
@@ -98,7 +111,17 @@ $blue: #4136f1;
           transform: rotate(-135deg);
           height: 16px;
           width: 16px;
+          transition: transform 0.5s;
         }
+      }
+
+      button:hover {
+        box-shadow: rgba(65, 54, 241, 0.48) 6px 2px 16px 0px,
+          rgba(135, 67, 255, 0.8) -6px -2px 16px 0px;
+      }
+
+      button:hover img {
+        transform: rotate(225deg);
       }
     }
 
@@ -106,18 +129,18 @@ $blue: #4136f1;
       flex-basis: 50%;
       height: auto;
       position: relative;
-      padding: 32px;
+      padding: $padding-large;
 
       @media (max-width: 768px) {
         flex-basis: 100%;
-        padding: 16px;
+        padding: $padding-small;
       }
 
       .wrapper {
         position: relative;
         width: 100%;
         height: 430px;
-        background: linear-gradient(to right, #4136f1, #8743ff);
+        background: linear-gradient(to right, $blue, #8743ff);
         border-radius: 16px;
         box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 

@@ -21,15 +21,17 @@ $blue: #4136f1;
     font-weight: 100;
   }
 
-  h1 {
-    font-size: 48px;
-    font-weight: 700;
-    margin-bottom: 16px;
-    width: 700px;
-    text-align: center;
+  .textReveal {
+    height: fit-content;
+    h1 {
+      font-size: 48px;
+      font-weight: 700;
+      text-align: center;
+    }
   }
 
   p {
+    margin-top: 32px;
     width: 500px;
     text-align: center;
   }

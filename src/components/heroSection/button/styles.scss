@@ -1,7 +1,8 @@
 .button {
   display: flex;
   justify-content: center;
-  margin: 32px 0;
+  width: fit-content;
+  margin: 32px auto;
 
   img {
     background: linear-gradient(45deg, #4136f1, #8743ff);
@@ -9,5 +10,12 @@
     width: 70px;
     border-radius: 16px;
     padding: 16px;
+    transition: box-shadow 0.5s, padding 0.5s;
   }
+}
+
+.button:hover img {
+  box-shadow: rgba(65, 54, 241, 0.48) 6px 2px 16px 0px,
+    rgba(135, 67, 255, 0.8) -6px -2px 16px 0px;
+  padding: 18px;
 }

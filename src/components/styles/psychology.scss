@@ -10,7 +10,6 @@ $blue: #155bff;
 .bannerSection {
   width: 100%;
   display: flex;
-  background-color: #8743ff;
   position: relative;
   height: 500px;
   margin-bottom: 80px;
@@ -78,8 +77,12 @@ $blue: #155bff;
     margin-bottom: 16px;
     font-size: 22px;
     font-weight: 600;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
-      rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+    transition: box-shadow 0.5s;
+  }
+
+  button:hover {
+    box-shadow: rgba(65, 54, 241, 0.48) 6px 2px 16px 0px,
+      rgba(135, 67, 255, 0.8) -6px -2px 16px 0px;
   }
 
   p {
@@ -153,15 +156,19 @@ $blue: #155bff;
           width: 30%;
           padding: 32px;
           border-radius: 16px;
-          background: rgba(255, 255, 255, 0.3); /* Warna semi-transparan */
+          background: rgba(255, 255, 255, 0.3);
           border-radius: 16px;
-          backdrop-filter: blur(10px); /* Efek blur untuk glassmorphism */
-          -webkit-backdrop-filter: blur(
-            10px
-          ); /* Untuk dukungan browser Safari */
-          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Tambahkan bayangan untuk efek depth */
-          border: 1px solid rgba(255, 255, 255, 0.2); /* Batas semi-transparan */
+          backdrop-filter: blur(10px);
+          -webkit-backdrop-filter: blur(10px);
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          border: 1px solid rgba(255, 255, 255, 0.2);
           color: $white;
+          transition: box-shadow 0.5s;
+        }
+
+        .card:hover {
+          box-shadow: rgba(65, 54, 241, 0.48) 6px 2px 16px 0px,
+            rgba(135, 67, 255, 0.8) -6px -2px 16px 0px;
         }
       }
     }
@@ -391,6 +398,51 @@ $blue: #155bff;
       }
     }
   }
+
+  .proBundling {
+    background: linear-gradient(
+      45deg,
+      rgba(65, 54, 241, 0.7),
+      rgba(135, 67, 255, 0.7)
+    );
+    backdrop-filter: blur(10px);
+
+    .top {
+      .desc {
+        color: $white;
+      }
+    }
+
+    .price {
+      h1 {
+        color: $white;
+        h2 {
+          color: $black-200;
+        }
+      }
+    }
+
+    .feature {
+      ul {
+        li {
+          color: $white;
+        }
+      }
+    }
+
+    .cta {
+      button {
+        color: $white;
+        transition: box-shadow 0.5s, background-color 0.5s;
+      }
+
+      button:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+        box-shadow: rgba(65, 54, 241, 0.48) 6px 2px 16px 0px,
+          rgba(135, 67, 255, 0.8) -6px -2px 16px 0px;
+      }
+    }
+  }
 }
 
 .stepsSection {
@@ -506,4 +558,17 @@ $blue: #155bff;
         rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
     }
   }
+}
+
+.mask-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: #8743ff;
+  pointer-events: none;
+  z-index: 10;
+  mix-blend-mode: hard-light;
 }

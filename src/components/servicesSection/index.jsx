@@ -33,7 +33,14 @@ const Index = () => {
     <>
       <section className="serviceSection">
         <div className="heading">
-          <h1>Here' what you can do with our Mental health care services</h1>
+          <div className="wrapper">
+            <div className="textReveal">
+              <h1>Here' what you can do with our Mental health</h1>
+            </div>
+            <div className="textReveal">
+              <h1> care services</h1>
+            </div>
+          </div>
           <button>
             Learn More <img src="/Arrow.svg" alt="" />
           </button>
@@ -58,7 +65,7 @@ const Index = () => {
 const Card = ({ title, icon, url }) => {
   return (
     <div className="card">
-      <img src={icon} alt={title} />
+      <img src={icon} alt={title} loading="lazy" />
       <div className="container">
         <h2>{title}</h2>
       </div>

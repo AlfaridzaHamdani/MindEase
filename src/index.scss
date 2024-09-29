@@ -8,6 +8,11 @@ $white: #fcfcfc;
   box-sizing: border-box;
 }
 
+.textReveal {
+  overflow: hidden;
+  width: fit-content;
+}
+
 body {
   background-color: $white;
 }

@@ -7,32 +7,38 @@ $white: #fcfcfc;
 .appointmentSection {
   padding: 64px 0;
   .heading {
-    h1 {
-      font-size: 64px;
-      font-weight: 100;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .textReveal {
+      h1 {
+        font-size: 64px;
+        font-weight: 100;
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
-      p {
-        background-image: url("/public/brain.jpg");
-        background-size: cover;
-        background-position: left;
-        width: 200px;
-        height: 64px;
-        border-radius: 64px;
+        p {
+          background-image: url("/public/brain.jpg");
+          background-size: cover;
+          background-position: left;
+          width: 200px;
+          height: 64px;
+          border-radius: 64px;
+        }
       }
     }
 
-    h1:nth-of-type(2) {
-      span {
-        background: linear-gradient(45deg, #4136f1, #8743ff);
-        color: $white;
-        transform: rotate(10deg);
-        padding: 8px 32px;
-        border-radius: 64px;
-        margin-left: 16px;
-        margin-top: 16px;
+    .bot {
+      h1 {
+        span {
+          background: linear-gradient(45deg, #4136f1, #8743ff);
+          color: $white;
+          padding: 8px 32px;
+          border-radius: 64px;
+          margin-left: 16px;
+          margin-top: 16px;
+        }
       }
     }
   }
@@ -70,6 +76,10 @@ $white: #fcfcfc;
     }
   }
 
+  .helped {
+    align-items: end;
+  }
+
   .card {
     padding: 64px 0 0 0;
     width: 100%;
@@ -80,6 +90,7 @@ $white: #fcfcfc;
       width: 300px;
       height: 400px;
       position: relative;
+
       img {
         position: relative;
         z-index: 5;
@@ -247,6 +258,7 @@ $white: #fcfcfc;
     }
 
     .cRight {
+      transition: box-shadow 0.5s;
       border-radius: 16px 0 0 16px;
       background: linear-gradient(
         45deg,
@@ -273,7 +285,13 @@ $white: #fcfcfc;
       }
     }
 
+    .cRight:hover {
+      box-shadow: rgba(65, 54, 241, 0.48) 6px 2px 16px 0px,
+        rgba(135, 67, 255, 0.8) -6px -2px 16px 0px;
+    }
+
     .cLeft {
+      transition: box-shadow 0.5s;
       border-radius: 0 16px 16px 0;
       background-color: $white;
       .left {
@@ -288,6 +306,11 @@ $white: #fcfcfc;
           }
         }
       }
+    }
+
+    .cLeft:hover {
+      box-shadow: rgba(124, 119, 176, 0.2) 6px 2px 16px 0px,
+        rgb(189, 142, 237) -6px -2px 16px 0px;
     }
   }
 }
@@ -310,8 +333,8 @@ $white: #fcfcfc;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     gap: 80px;
-    align-items: start;
 
     .heading {
       color: $white;
@@ -341,11 +364,11 @@ $white: #fcfcfc;
         color: $white;
 
         h1 {
-          margin-bottom: 24px;
           font-size: 32px;
         }
 
         .wrapper {
+          margin-top: 24px;
           display: flex;
           flex-direction: column;
           gap: 16px;
@@ -491,10 +514,10 @@ $white: #fcfcfc;
       width: fit-content;
       font-size: 64px;
       font-weight: 100;
-      margin-bottom: 16px;
     }
 
     p {
+      margin-top: 24px;
       width: 100%;
     }
   }

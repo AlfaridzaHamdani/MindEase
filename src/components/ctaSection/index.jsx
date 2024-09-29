@@ -13,8 +13,15 @@ const index = () => {
           <div className="element el4"></div>
           <div className="element el5"></div>
           <div className="element el6"></div>
-          <h3>Are you ready?</h3>
-          <h1>To improving your mental well-being</h1>
+          <div className="textReveal">
+            <h3>Are you ready?</h3>
+          </div>
+          <div className="textReveal">
+            <h1>To improving your mental</h1>
+          </div>
+          <div className="textReveal">
+            <h1>well-being</h1>
+          </div>
           <p>
             Join Thousands of our User who already using Mind Ease to Improve
             their mental well-being

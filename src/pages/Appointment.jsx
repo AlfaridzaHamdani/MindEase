@@ -1,14 +1,16 @@
 import "../components/styles/appointment.scss";
-import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import Heading from "../components/heading";
+import { useEffect } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-const Consultant = (image) => {
+const Consultant = ({ name }) => {
   return (
     <div className="consultant">
-      <img src={`./${image}.jpg`} alt="" className={image} />
+      <img src={`./${name}.jpg`} alt={name} className={name} loading="lazy" />
     </div>
   );
 };
@@ -16,16 +18,52 @@ const Consultant = (image) => {
 const Question = ({ question, answer, isActive, onClick }) => {
   return (
     <div className="question">
-      <h1 onClick={onClick} style={{ cursor: "pointer" }}>
-        {question}
-      </h1>
+      <div className="textReveal">
+        <h1 onClick={onClick} style={{ cursor: "pointer" }}>
+          {question}
+        </h1>
+      </div>
       {isActive && <p>{answer}</p>}
     </div>
   );
 };
 
+const Counter = ({ targetValue }) => {
+  const counterRef = useRef(null);
+  const startValue = 0;
+
+  useEffect(() => {
+    const duration = 2;
+
+    gsap.to(
+      { value: startValue },
+      {
+        value: targetValue,
+        duration: duration,
+        onUpdate: function () {
+          counterRef.current.innerText = `${Math.floor(
+            this.targets()[0].value
+          )}+`;
+        },
+        ease: "power1.out",
+      }
+    );
+  }, [targetValue]);
+
+  return (
+    <h3 className="h3" ref={counterRef}>
+      {startValue}+
+    </h3>
+  );
+};
+
 const Appointment = () => {
-  const consultant = ["user1", "user2", "user3", "user4"];
+  const consultants = [
+    { id: 1, name: "user1" },
+    { id: 2, name: "user2" },
+    { id: 3, name: "user3" },
+    { id: 4, name: "user4" },
+  ];
   const faqs = [
     {
       question:
@@ -61,26 +99,94 @@ const Appointment = () => {
     setActiveIndex(activeIndex === index ? null : index);
   };
 
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.utils.toArray("h1, .h3, .p").forEach((text) => {
+      gsap.fromTo(
+        text,
+        { y: 64, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          scrollTrigger: {
+            trigger: text,
+            start: "top bottom",
+            toggleActions: "play none none reverse",
+          },
+          duration: 0.8,
+          delay: 0.3,
+        }
+      );
+    });
+
+    gsap.fromTo(
+      ".one",
+      { rotate: "0deg" },
+      { rotate: "-5deg", duration: 1, delay: 0.5 }
+    );
+    gsap.fromTo(
+      ".second",
+      { rotate: "0deg" },
+      { rotate: "-10deg", duration: 1, delay: 0.5 }
+    );
+    gsap.fromTo(
+      ".third",
+      { rotate: "0deg" },
+      { rotate: "-15deg", duration: 1, delay: 0.5 }
+    );
+  }, []);
+
+  const counterRef = useRef(null);
+
+  useEffect(() => {
+    const targetValue = 30000;
+    let startValue = 0;
+    const duration = 2;
+
+    gsap.to(
+      { value: startValue },
+      {
+        value: targetValue,
+        duration: duration,
+        onUpdate: function () {
+          counterRef.current.innerText = `${Math.floor(
+            this.targets()[0].value
+          )}+`;
+        },
+        ease: "power1.out",
+      }
+    );
+  }, []);
+
   return (
     <>
       <Heading />
       <section className="appointmentSection">
         <div className="heading">
-          <h1>
-            Quick <p></p> Easy Appointments
-          </h1>
-          <h1>
-            for Better<span> Health!</span>
-          </h1>
+          <div className="textReveal">
+            <h1>
+              Quick <p></p> Easy Appointments
+            </h1>
+          </div>
+          <div className="textReveal bot">
+            <h1>
+              for Better<span> Health!</span>
+            </h1>
+          </div>
         </div>
 
         <div className="card">
           <div className="stat helped">
             <div className="wrapper">
               <img src="./Arrow.svg" alt="arrow" />
-              <h3>30.000+</h3>
+              <div className="textReveal">
+                <Counter targetValue={30000} />
+              </div>
             </div>
-            <p>People helped</p>
+            <div className="textReveal">
+              <p className="p">People helped</p>
+            </div>
           </div>
 
           <div className="container">
@@ -92,9 +198,18 @@ const Appointment = () => {
           <div className="stat helper">
             <div className="wrapper">
               <img src="./Arrow.svg" alt="arrow" />
-              <h3>100+</h3>
+              <div className="textReveal">
+                <Counter targetValue={100} />
+              </div>
             </div>
-            <p>Consultant team ready to help</p>
+            <div className="textReveal">
+              <div className="textReveal">
+                <p className="p">Consultant team ready</p>
+              </div>
+              <div className="textReveal">
+                <p className="p">to help</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -103,7 +218,9 @@ const Appointment = () => {
         <div className="container">
           <Link to={"/appointment/psychology"} className="card cLeft">
             <div className="left">
-              <h1>Psychology</h1>
+              <div className="textReveal">
+                <h1>Psychology</h1>
+              </div>
               <div className="container">
                 <ul>
                   <li>S2 Physchologist Consult</li>
@@ -120,7 +237,9 @@ const Appointment = () => {
           </Link>
           <Link to={"/appointment/life-coach"} className="card cRight">
             <div className="left">
-              <h1>Life Coach</h1>
+              <div className="textReveal">
+                <h1>Life Coach</h1>
+              </div>
               <div className="container">
                 <ul>
                   <li>S2 Physchologist Consult</li>
@@ -140,7 +259,12 @@ const Appointment = () => {
 
       <section className="consultantSection">
         <div className="text">
-          <h1>Consultant you can trust</h1>
+          <div className="textReveal">
+            <h1>Consultant you</h1>
+          </div>
+          <div className="textReveal">
+            <h1>can trust</h1>
+          </div>
           <p>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Assumenda
             cum nemo atque earum necessitatibus quae quidem, quis, iure mollitia
@@ -149,22 +273,30 @@ const Appointment = () => {
           </p>
         </div>
 
-        <div className="wrapper ">
+        <div className="wrapper">
           <div className="row top">
-            {consultant.slice(0, 2).map((image) => Consultant(image))}
+            {consultants.slice(0, 2).map((image) => (
+              <Consultant key={image.id} name={image.name} />
+            ))}
           </div>
           <div className="row bot">
-            {consultant.slice(2, 4).map((image) => Consultant(image))}
+            {consultants.slice(2, 4).map((image) => (
+              <Consultant key={image.id} name={image.name} />
+            ))}
           </div>
         </div>
       </section>
 
       <section className="differencesSection">
         <div className="container">
-          <h1 className="heading">Differences in Consultation</h1>
+          <div className="textReveal">
+            <h1 className="heading">Differences in Consultation</h1>
+          </div>
           <div className="containerCard">
             <div className="card">
-              <h1>Counseling</h1>
+              <div className="textReveal">
+                <h1>Counseling</h1>
+              </div>
               <div className="wrapper">
                 <p>
                   Intended for users with CLINICAL problems (eg: trauma,
@@ -181,7 +313,9 @@ const Appointment = () => {
               </div>
             </div>
             <div className="card">
-              <h1>Mentoring</h1>
+              <div className="textReveal">
+                <h1>Mentoring</h1>
+              </div>
               <div className="wrapper">
                 <p>
                   Dealing with NON-CLINICAL issues (examples: friendship,work,
@@ -202,7 +336,12 @@ const Appointment = () => {
 
       <section className="faqSection">
         <div className="left">
-          <h1>Frequenlty asked questions</h1>
+          <div className="textReveal">
+            <h1>Frequenlty asked</h1>
+          </div>
+          <div className="textReveal">
+            <h1>questions</h1>
+          </div>
           <p>Still need help? Chat to us.</p>
         </div>
         <div className="right">

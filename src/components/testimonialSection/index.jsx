@@ -1,17 +1,17 @@
-import React from "react";
 import "./styles.scss";
+import { FaStar } from "react-icons/fa";
 
 const Card = ({ message, img, star, type, prefesion, color }) => {
   return (
     <div className={`card ${type ? "show" : "hidden"}`}>
       <div className="top">
         <p>{message}</p>
-        <img src={img} alt="customer feedback" />
+        <img src={img} alt="customer feedback" loading="lazy" />
       </div>
       <div className="bot">
         <div className="star">
           {[...Array(star)].map((_, index) => (
-            <img key={index} src="/star.svg" alt={`star ${index + 1}`} />
+            <FaStar key={index} color="gold" size={16} />
           ))}
         </div>
         <h2 style={{ backgroundColor: `#${color}` }}>{prefesion}</h2>
@@ -96,7 +96,9 @@ const Index = () => {
   return (
     <>
       <section className="testimonialSection">
-        <h1>Our Customers Said</h1>
+        <div className="textReveal">
+          <h1>Our Customers Said</h1>
+        </div>
         <div className="container">
           <div className="containerTop">
             {top.map((item, index) => (

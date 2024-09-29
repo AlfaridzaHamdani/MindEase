@@ -9,13 +9,17 @@ $white: #fcfcfc;
   display: flex;
   flex-direction: column;
   justify-content: start;
+  align-items: center;
   padding: 0 5vw 160px 5vw;
 
-  h1 {
-    font-size: 40px;
-    font-weight: 100;
-    padding: 0 0 40px 0;
-    text-align: center;
+  .textReveal {
+    h1 {
+      font-size: 40px;
+      font-weight: 100;
+      text-align: center;
+    }
+
+    margin: 0 0 40px 0;
   }
   .container {
     display: flex;

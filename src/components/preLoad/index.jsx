@@ -1,10 +1,7 @@
-import React, { useEffect } from "react";
-import { TweenMax, Power2 } from "gsap";
-import { useLocation } from "react-router-dom";
-import "./styles.scss";
+import React from "react";
 
-const Preloader = ({ onLoad }) => {
-  return <div className="preloader"></div>;
+const index = () => {
+  return <div>index</div>;
 };
 
-export default Preloader;
+export default index;

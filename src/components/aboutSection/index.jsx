@@ -1,18 +1,52 @@
 import React from "react";
 import "./styles.scss";
+import { useEffect } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const index = () => {
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.utils.toArray(".h1, .h2").forEach((text) => {
+      gsap.fromTo(
+        text,
+        { y: 64, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          scrollTrigger: {
+            trigger: text,
+            start: "top 90%",
+            toggleActions: "play none none reverse",
+          },
+          duration: 0.8,
+          delay: 0.5,
+        }
+      );
+    });
+  }, []);
+
   return (
     <>
       <section className="aboutSection">
         <h1>About Us</h1>
         <div className="container">
           <div className="left">
-            <h2 className="">
-              <span>“MindEase Healthcare” </span>Providing <br />{" "}
-              <span>The Best Opportunities</span> For Health <br /> & Wellness
-              Around The Globe.
-            </h2>
+            <div className="textReveal">
+              <h2 className="h2">
+                <span>“MindEase Healthcare” </span>Providing
+              </h2>
+            </div>
+
+            <div className="textReveal">
+              <h2 className="h2 second">
+                <span>The Best Opportunities</span> For Health
+              </h2>
+            </div>
+            <div className="textReveal">
+              <h2 className="h2">& Wellness Around The Globe.</h2>
+            </div>
             <p className="">
               MindEase Healthcare is an organization dedicated to providing
               top-notch healthcare services. Our mission is to deliver quality
@@ -21,7 +55,7 @@ const index = () => {
               wellness, ensuring that our patients receive the best care
               possible.
             </p>
-            <button className="">
+            <button className="btn">
               Join Us <img src="/Arrow.svg" alt="" />
             </button>
           </div>
@@ -34,7 +68,7 @@ const index = () => {
                 className="firstImg"
               />
               <img
-                src="./HeroImage2.png"
+                src="./HeroImage2.jpg"
                 alt="Healthcare professionals discussing"
                 className="secondImg"
               />

@@ -31,17 +31,30 @@ $backgroundColor: #251b5f;
   }
 
   .paragraph {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    padding: 0;
+    width: fit-content;
+    height: 80px;
+
     p {
       width: 300px;
+      height: fit-content;
       font-size: 14px;
       padding-left: 16px;
-      margin: 16px 0 32px;
+      margin: 4px 0;
 
       @media (max-width: 768px) {
         width: 100%;
         padding-left: 0;
         margin: 8px 0 16px;
       }
+    }
+
+    p:nth-child(2) {
+      margin-bottom: 24px;
     }
   }
 
@@ -266,7 +279,7 @@ $backgroundColor: #251b5f;
     height: 100%;
     z-index: 1;
     background-color: $black;
-    background-image: url("/public/HeroImage.png");
+    background-image: url("/public/HeroImage.jpg");
     background-position: top;
     background-size: calc(100% + 180px);
     transform: translateX(-126px);
@@ -326,7 +339,12 @@ $backgroundColor: #251b5f;
         color: $black;
         img {
           transform: rotate(45deg);
+          transition: transform 0.5s;
         }
+      }
+
+      a:hover img {
+        transform: rotate(405deg);
       }
     }
   }
@@ -336,7 +354,7 @@ $backgroundColor: #251b5f;
     height: 400px;
     background-color: $black;
     border-radius: 16px;
-    background-image: url("/public/HeroImage2.png");
+    background-image: url("/public/HeroImage2.jpg");
     background-size: cover;
     background-position: top;
   }
@@ -382,6 +400,7 @@ $backgroundColor: #251b5f;
         display: flex;
         align-items: center;
         justify-content: center;
+
         p {
           text-align: center;
           width: 300px;
