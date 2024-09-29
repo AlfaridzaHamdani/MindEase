@@ -45,10 +45,9 @@ $white: #fcfcfc;
       color: $black;
       font-size: 14px;
       z-index: 2;
-    }
-
-    a:hover {
-      color: $white;
+      height: 49px;
+      display: flex;
+      align-items: center;
     }
   }
 
@@ -58,9 +57,5 @@ $white: #fcfcfc;
     background-color: $black-300;
     border-radius: 32px;
     transform: translateX(-94.69px);
-  }
-
-  a.active {
-    color: $white;
   }
 }

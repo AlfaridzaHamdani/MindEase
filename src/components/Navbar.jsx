@@ -1,20 +1,18 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import "./styles/navbar.scss";
 import { gsap } from "gsap";
 
 const Navbar = () => {
   const navbar = ["Appointment", "About"];
   const itemRefs = useRef([]);
-  const [hoveredItem, setHoveredItem] = useState(null);
   const [hoveredItemWidth, setHoveredItemWidth] = useState(0);
-  const [hoveredItemHeight, setHoveredItemHeight] = useState(0);
-  const [prefWidth, setPrefWidth] = useState(null);
-  const [activeLink, setActiveLink] = useState(null);
-  const [prefIndex, setPrefIndex] = useState(null);
-
+  const [hoveredItemLeft, setHoveredItemLeft] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(0); // Default activeIndex Home
   const homeRef = useRef(null);
   const [homeWidth, setHomeWidth] = useState(null);
+  const location = useLocation();
+  const linkRef = useRef(null);
 
   useEffect(() => {
     const homeItem = homeRef.current;
@@ -24,105 +22,141 @@ const Navbar = () => {
       );
       setHomeWidth(width);
     }
-  });
-
-  const handleMouseEnter = (index) => {
-    setHoveredItem(index);
-
-    const prefItem = itemRefs.current[prefIndex];
-    if (prefItem) {
-      const width = parseFloat(
-        prefItem.getBoundingClientRect().width.toFixed(2)
-      );
-      console.log("Pref Width:", width);
-      setPrefWidth(width);
-    }
-
-    if (prefIndex !== null && prefIndex !== index && index > prefIndex) {
-      gsap.to(".backgroundHovered", {
-        backgroundColor: "#2c2c2c",
-        x: hoveredItemWidth,
-        width: prefWidth,
-      });
-    } else if (prefIndex !== null && index < prefIndex) {
-      gsap.fromTo(
-        ".backgroundHovered",
-        {
-          backgroundColor: "#2c2c2c",
-          x: hoveredItemWidth,
-          width: hoveredItemWidth,
-        },
-        {
-          x: 0,
-          backgroundColor: "#2c2c2c",
-          width: prefWidth,
-        }
-      );
-    } else if (prefIndex == null && index == 0) {
-      console.log("prefIndex is null and index is 0");
-      gsap.to(".backgroundHovered", {
-        backgroundColor: "#2c2c2c",
-        x: 0,
-        width: hoveredItemWidth,
-      });
-    } else if (prefIndex == null && index > 0) {
-      gsap.to(".backgroundHovered", {
-        backgroundColor: "#2c2c2c",
-        x: hoveredItemWidth,
-        width: hoveredItemWidth,
-      });
-    }
-
-    setPrefIndex(index);
-
-    const item = itemRefs.current[index];
-    if (item) {
-      const width = parseFloat(item.getBoundingClientRect().width.toFixed(2));
-      const height = parseFloat(item.getBoundingClientRect().height.toFixed(2));
-      setHoveredItemWidth(width);
-      setHoveredItemHeight(height);
-    }
-  };
-
-  const handleMouseLeave = (index) => {
-    setHoveredItem(null);
-    setPrefIndex(null);
-  };
+  }, []);
 
   useEffect(() => {
-    if (hoveredItem !== null) {
-      console.log("Hovered Item Width:", hoveredItemWidth);
-      console.log("Hovered Item Height:", hoveredItemHeight);
+    navbar.forEach((item, index) => {
+      if (location.pathname === `/${item.toLowerCase()}`) {
+        setActiveIndex(index);
+        handleSetActiveBackground(index, false); // Update background on page load
+      }
+    });
+  }, [location.pathname]);
+
+  const handleSetActiveBackground = (index, isHovering) => {
+    const item = itemRefs.current[index];
+    const homeItem = homeRef.current;
+
+    const homeLeft = homeItem.getBoundingClientRect().left;
+    const parentRect = linkRef.current.getBoundingClientRect();
+
+    let width, left;
+
+    if (isHovering && index === 2) {
+      // Hovering Home
+      width = homeWidth;
+      left = homeLeft - parentRect.left;
+    } else if (item) {
+      const rect = item.getBoundingClientRect();
+      width = rect.width;
+      left = rect.left - parentRect.left;
+    } else {
+      // Kembali ke Home jika tidak ada yang di-hover
+      width = homeWidth;
+      left = homeLeft - parentRect.left;
     }
-  }, [hoveredItemWidth]);
+
+    setHoveredItemWidth(width);
+    setHoveredItemLeft(left);
+
+    gsap.to(".backgroundHovered", {
+      x: left,
+      width: width,
+      backgroundColor: "#2c2c2c",
+      ease: "power3.out",
+      duration: 0.3,
+    });
+
+    // Handle color changes
+    if (isHovering) {
+      // Set color white for hovered item, and keep active item white too
+      gsap.to(itemRefs.current[index], {
+        color: "#fcfcfc",
+        duration: 0.3,
+        ease: "power3.out",
+      });
+
+      // Keep the active item white
+      if (index !== activeIndex) {
+        gsap.to(itemRefs.current[activeIndex], {
+          color: "#2c2c2c",
+          duration: 0.3,
+          ease: "power3.out",
+        });
+      }
+    } else {
+      navbar.forEach((_, idx) => {
+        // Change active item color to white, others to dark
+        gsap.to(itemRefs.current[idx], {
+          color: idx === activeIndex ? "#fcfcfc" : "#2c2c2c",
+          duration: 0.3,
+          ease: "power3.out",
+        });
+      });
+    }
+  };
+
+  const handleMouseEnter = (index) => {
+    handleSetActiveBackground(index, true);
+  };
 
   const handleMouseLeaveLink = () => {
-    gsap.to(".backgroundHovered", {
-      x: -homeWidth,
-      width: homeWidth,
-    });
+    handleSetActiveBackground(activeIndex, false);
+  };
+
+  const handleLinkClick = (index) => {
+    setActiveIndex(index);
+    handleSetActiveBackground(index, false);
+  };
+
+  const handleMouseLeaveItem = (index) => {
+    if (index !== activeIndex) {
+      gsap.to(itemRefs.current[index], {
+        color: "#2c2c2c",
+        duration: 0.3,
+        ease: "power3.out",
+      });
+    }
+  };
+
+  const handleMouseLeaveHome = () => {
+    handleSetActiveBackground(activeIndex, false); // Reset to activeIndex on mouse leave
   };
 
   return (
     <nav className="navbar">
       <div className="home" ref={homeRef}>
-        <Link to="/">Home /</Link>
+        <Link
+          to="/"
+          onMouseEnter={() => handleSetActiveBackground(2, true)} // Hover Home
+          onMouseLeave={handleMouseLeaveHome} // Leave Home
+          onClick={() => handleLinkClick(2)} // Click Home
+        >
+          Home /
+        </Link>
       </div>
 
-      <div className="link" onMouseLeave={() => handleMouseLeaveLink()}>
+      <div className="link" ref={linkRef} onMouseLeave={handleMouseLeaveLink}>
         {navbar.map((item, index) => (
           <NavLink
             key={index}
             ref={(el) => (itemRefs.current[index] = el)}
             onMouseEnter={() => handleMouseEnter(index)}
-            onMouseLeave={() => handleMouseLeave(index)}
+            onMouseLeave={() => handleMouseLeaveItem(index)}
+            onClick={() => handleLinkClick(index)}
             to={item === "Home" ? "/" : `/${item.toLowerCase()}`}
             className={({ isActive }) => `item ${isActive ? "active" : ""}`}
           >
             {item}
           </NavLink>
         ))}
-        <div className="backgroundHovered"></div>
+        <div
+          className="backgroundHovered"
+          style={{
+            width: hoveredItemWidth,
+            transform: `translateX(${hoveredItemLeft}px)`,
+          }}
+        ></div>
       </div>
     </nav>
   );
