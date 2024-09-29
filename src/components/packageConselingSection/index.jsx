@@ -1,7 +1,7 @@
 import React from "react";
 import "./styles.scss";
 
-const index = () => {
+const ServicePackage = ({ handleStepChange }) => {
   const services = [
     {
       title: "VOICE CALL",
@@ -87,9 +87,12 @@ const index = () => {
           </div>
         ))}
       </div>
-      <button className="next-button">Lanjut</button>
+      {/* When "Lanjut" is clicked, change step to 2 */}
+      <button className="next-button" onClick={() => handleStepChange(2)}>
+        Lanjut
+      </button>
     </div>
   );
 };
 
-export default index;
+export default ServicePackage;
