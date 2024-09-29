@@ -55,8 +55,7 @@ const RegisterForm = ({ handleStepChange }) => {
         </div>
         <p className="note">
           Harap isi data dirimu dengan benar <br />
-          Registrasi akun Satu Persen diperlukan untuk memilih jadwal
-          konsultasi.
+          Registrasi akun MindEase diperlukan untuk memilih jadwal konsultasi.
         </p>
         <button type="submit" className="submit-button">
           Lanjut
