@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import Heading from "../components/heading";
 
 const Consultant = (image) => {
   return (
@@ -62,6 +63,7 @@ const Appointment = () => {
 
   return (
     <>
+      <Heading />
       <Navbar />
       <section className="appointmentSection">
         <div className="heading">

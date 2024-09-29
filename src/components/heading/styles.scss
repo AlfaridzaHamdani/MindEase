@@ -1,0 +1,30 @@
+$black: #2c2c2c;
+$black-400: #5e5e5e;
+$black-300: #b5b5b5;
+$black-200: #dddddd;
+$white: #fcfcfc;
+$blue: #4136f1;
+
+a {
+  text-decoration: none;
+  color: $black;
+}
+
+.headingContainer {
+  display: flex;
+  align-items: start;
+  justify-content: start;
+  padding: 16px 5vw;
+  gap: 8px;
+
+  .logoWrapper {
+    .logo {
+      font-size: 24px;
+    }
+  }
+
+  .subLogo {
+    font-size: 16px;
+    font-weight: 100;
+  }
+}

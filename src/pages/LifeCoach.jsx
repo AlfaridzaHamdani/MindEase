@@ -1,59 +1,97 @@
 import "../components/styles/lifeCoach.scss";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import Heading from "../components/heading";
+
+const Schedule = ({ day, date, month, booked }) => {
+  return (
+    <div className={` ${booked == 25 ? `full` : `card`}`}>
+      <h3>{day}</h3>
+      <h3>
+        {date} {month}
+      </h3>
+      <div className="status">
+        <h2>
+          <span className={booked < 20 ? `green` : `red`}>{booked}</span>
+          /25
+        </h2>
+        <h3>Booked</h3>
+      </div>
+    </div>
+  );
+};
 
 const LifeCoach = () => {
+  const schedule = [
+    { day: "Monday", date: 30, month: "SEP", booked: 10 },
+    { day: "Tuesday", date: 1, month: "OCT", booked: 15 },
+    { day: "Wednesday", date: 2, month: "OCT", booked: 20 },
+    { day: "Thursday", date: 3, month: "OCT", booked: 18 },
+    { day: "Friday", date: 4, month: "OCT", booked: 22 },
+    { day: "Saturday", date: 5, month: "OCT", booked: 5 },
+    { day: "Sunday", date: 6, month: "OCT", booked: 25 },
+  ];
+
   return (
     <>
+      <Heading />
       <Navbar />
       <section className="bannerSection">
-        <div className="container">
-          <h1>
-            Unlock Your True <span>Potential</span> with a Professional Life
-            Coach
-          </h1>
+        <div className="left">
           <p>
-            Merasa Down? Bingung Pilih Karir? Stres dengan Tugas? Kecanduan
-            Gadget? Nggak Pede Sama Body? Yuk, Curhat Bareng Life Coach di Life
-            Consultation Indonesia!
+            Are you feeling stuck and unfulfilled in life? Perhaps your
+            challenges are impacting various areas of your well-being. Or worse,
+            could they be hindering your potential for success? Connect with a
+            Life Coach at MindEase today!
           </p>
         </div>
+        <div className="right">
+          <h2>Growth</h2>
+        </div>
+        <div className="heading">
+          <h3>Life Coach</h3>
+          <h2>YourMind</h2>
+        </div>
+      </section>
+
+      <section className="buttonSection">
+        <button>Book an Appointment Now!</button>
+        <p>13.983+ People Have Consulted Here</p>
       </section>
 
       <section className="explainSection">
         <div className="container">
           <div className="left">
-            <h1>Apa itu Konseling?</h1>
+            <h1>What Exactly you do In Physcholog Feature?</h1>
             <p>
-              Konseling adalah layanan konsultasi one-on-one dengan Psikolog
-              Satu Persen untuk mengatasi masalah kehidupan yang mengganggu
-              kehidupan sehari-hari dan membahayakan dirimu atau orang lain.
+              Counseling is a one-on-one consultation with a psychologist to
+              address issues that disrupt your daily life or put yourself and
+              others at risk.
             </p>
           </div>
           <div className="right">
             <div className="wrapper">
               <h1>3</h1>
-              <h1>tanda kamu butuh Konseling dengan Psikolog</h1>
+              <h1>Signs you need to consult with physchology</h1>
             </div>
             <div className="containerCard">
               <div className="card">
                 <p>
-                  Menyakiti atau membahayakan diri sendiri (e.g: Merasa harga
-                  diri rendah, pikiran yang menyakiti diri sendiri, gangguan
-                  nafsu makan)
+                  Harming or endangering oneself (e.g., Feeling low self-esteem,
+                  self-harming thoughts, eating disorders)
                 </p>
               </div>
               <div className="card">
                 <p>
-                  Menyakiti atau membahayakan orang lain (e.g: Sulit mengontrol
-                  emosi hingga melakukan kekerasan kepada orang lain)
+                  Harming or endangering others (e.g., Struggling to control
+                  emotions leading to violence against others)
                 </p>
               </div>
               <div className="card">
                 <p>
-                  Mengganggu kehidupan sehari-hari (e.g: Tidak bisa tidur
-                  sehingga sulit fokus di pekerjaan, hilang nafsu makan hingga
-                  sakit fisik)
+                  Disrupting daily life (e.g., Inability to sleep leading to
+                  difficulty focusing at work, loss of appetite resulting in
+                  physical illness)
                 </p>
               </div>
             </div>
@@ -62,64 +100,17 @@ const LifeCoach = () => {
       </section>
 
       <section className="scheaduleSection">
-        <h1 className="heading">Jadwal Terdekat</h1>
+        <h1 className="heading">Future Appointment</h1>
         <div className="container">
-          <div className="card">
-            <h3>Monday</h3>
-            <h3>30 SEP</h3>
-            <div className="status">
-              <h2>10/25</h2>
-              <h3>Booked</h3>
-            </div>
-          </div>
-          <div className="card">
-            <h3>Tuesday</h3>
-            <h3>1 OCT</h3>
-            <div className="status">
-              <h2>15/25</h2>
-              <h3>Booked</h3>
-            </div>
-          </div>
-          <div className="card">
-            <h3>Wednesday</h3>
-            <h3>2 OCT</h3>
-            <div className="status">
-              <h2>20/25</h2>
-              <h3>Booked</h3>
-            </div>
-          </div>
-          <div className="card">
-            <h3>Thursday</h3>
-            <h3>3 OCT</h3>
-            <div className="status">
-              <h2>18/25</h2>
-              <h3>Booked</h3>
-            </div>
-          </div>
-          <div className="card">
-            <h3>Friday</h3>
-            <h3>4 OCT</h3>
-            <div className="status">
-              <h2>22/25</h2>
-              <h3>Booked</h3>
-            </div>
-          </div>
-          <div className="card">
-            <h3>Saturday</h3>
-            <h3>5 OCT</h3>
-            <div className="status">
-              <h2>5/25</h2>
-              <h3>Booked</h3>
-            </div>
-          </div>
-          <div className="card">
-            <h3>Sunday</h3>
-            <h3>6 OCT</h3>
-            <div className="status">
-              <h2>12/25</h2>
-              <h3>Booked</h3>
-            </div>
-          </div>
+          {schedule.map((item, index) => (
+            <Schedule
+              key={index}
+              day={item.day}
+              date={item.date}
+              month={item.month}
+              booked={item.booked}
+            />
+          ))}
         </div>
       </section>
 
@@ -214,6 +205,60 @@ const LifeCoach = () => {
               <button>I want This One!</button>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="stepsSection">
+        <h1 className="heading">3 Step’s To Consult</h1>
+        <div className="container">
+          <div className="top">
+            <div className="img"></div>
+            <div className="line">
+              <div className="rounded"></div>
+              <hr />
+              <div className="rounded"></div>
+            </div>
+            <div className="img"></div>
+            <div className="line">
+              <div className="rounded"></div>
+              <hr />
+              <div className="rounded"></div>
+            </div>
+            <div className="img"></div>
+          </div>
+          <div className="bot">
+            <div className="card">
+              <h1>Choose Product</h1>
+              <p>
+                Wonder twenty hunted and put income set desire expect. Am
+                cottage calling.
+              </p>
+            </div>
+            <div className="card">
+              <h1>Choose Your Session</h1>
+              <p>
+                Conveying or northward offending admitting perfectly my. Colonel
+                gravit and moonlight.
+              </p>
+            </div>
+            <div className="card">
+              <h1>Start Consult</h1>
+              <p>
+                Moderate children at of outweigh it. Unsatiable it considered
+                invitation he travelling insensible.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="ctaSectionAppoinment">
+        <div className="container">
+          <h1>
+            Got a problem? Don’t keep it to yourself. Reach out to a
+            psychologist at MindEase for help.
+          </h1>
+          <button>Book An Appointment Now!</button>
         </div>
       </section>
       <Footer />

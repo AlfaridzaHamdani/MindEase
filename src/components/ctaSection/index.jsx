@@ -1,5 +1,6 @@
 import React from "react";
 import "./styles.scss";
+import { Link } from "react-router-dom";
 
 const index = () => {
   return (
@@ -19,8 +20,10 @@ const index = () => {
             their mental well-being
           </p>
           <div className="buttonContainer">
-            <button className="consult">Consult Now</button>
-            <button className="talk">Lets Talk</button>
+            <Link to={"/appointment"} className="consult btn">
+              Consult Now
+            </Link>
+            <button className="talk btn">Lets Talk</button>
           </div>
         </div>
       </section>

@@ -110,7 +110,11 @@ $blue: #4136f1;
     padding: 40px 0;
     gap: 32px;
 
-    button {
+    a {
+      text-decoration: none;
+    }
+
+    .btn {
       background-color: $white;
       color: $black;
       font-size: 20px;

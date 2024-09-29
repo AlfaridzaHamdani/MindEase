@@ -4,10 +4,12 @@ import BrandSection from "../components/brandSection";
 import VisiMisiSection from "../components/visiMisiSection";
 import Story from "../components/storySection";
 import CTA from "../components/ctaSection";
+import Heading from "../components/heading";
 
 const AboutUs = () => {
   return (
     <>
+      <Heading />
       <Navbar />
       <AboutUsSection />
       <BrandSection />
