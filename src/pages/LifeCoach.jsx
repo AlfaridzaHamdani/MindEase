@@ -2,6 +2,7 @@ import "../components/styles/lifeCoach.scss";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Heading from "../components/heading";
+import { Link } from "react-router-dom";
 
 const Schedule = ({ day, date, month, booked }) => {
   return (
@@ -258,7 +259,9 @@ const LifeCoach = () => {
             Got a problem? Don’t keep it to yourself. Reach out to a
             psychologist at MindEase for help.
           </h1>
-          <button>Book An Appointment Now!</button>
+          <Link to={"/appointment/psychology/form"}>
+            Book An Appointment Now!
+          </Link>
         </div>
       </section>
       <Footer />
