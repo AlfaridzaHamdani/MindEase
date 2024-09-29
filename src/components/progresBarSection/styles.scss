@@ -1,4 +1,3 @@
-// ProgressBar.scss
 .progress-bar-container {
   display: flex;
   flex-direction: column;
@@ -23,6 +22,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  cursor: pointer;
 }
 
 .step-circle {
@@ -50,7 +50,19 @@
   margin: 0 10px;
 }
 
+/* Active Step - Yellow */
 .active .step-circle {
-  background-color: #f2c94c; // Yellow background for the active step
-  color: #000; // Black text color for the active step
+  background: linear-gradient(to right, #4136f1, #8743ff);
+  color: #ffffff;
+}
+
+/* Completed Step - Green */
+.completed .step-circle {
+  background-color: #28a745;
+  color: #fff;
+}
+
+/* Completed Line - Green */
+.completed-line {
+  background-color: #28a745;
 }
