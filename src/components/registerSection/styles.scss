@@ -45,15 +45,16 @@
   .form {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 20px;
 
     .form-group {
       display: flex;
-      gap: 15px;
+      flex-direction: column;
+      gap: 10px;
 
       .input-group {
         display: flex;
-        gap: 5px;
+        gap: 10px;
 
         select,
         input {
@@ -63,10 +64,11 @@
 
       input,
       select {
-        padding: 10px;
+        padding: 12px;
         border: 1px solid #ddd;
         border-radius: 5px;
         width: 100%;
+        font-size: 16px;
       }
     }
 
@@ -78,14 +80,36 @@
       line-height: 1.4;
     }
 
+    .form-group.radio-group {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+
+      label {
+        font-size: 16px;
+      }
+
+      input[type="radio"] {
+        margin-right: 10px;
+        accent-color: #fbb03b;
+        transform: scale(1.2);
+      }
+    }
+
     .submit-button {
       background-color: #fbb03b;
       color: white;
       border: none;
-      padding: 10px 20px;
+      padding: 12px 20px;
       cursor: pointer;
       border-radius: 5px;
+      font-size: 16px;
       align-self: flex-end;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: #e09c28;
+      }
     }
   }
 }

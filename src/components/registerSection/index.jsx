@@ -46,10 +46,6 @@ const index = () => {
             placeholder="Buat Password (minimal 5 karakter)"
           />
         </div>
-        <div className="form-group">
-          <input type="checkbox" id="terms" />
-          <label htmlFor="terms">Pastikan email kamu sudah benar</label>
-        </div>
         <p className="note">
           Harap isi data dirimu dengan benar <br />
           Registrasi akun Satu Persen diperlukan untuk memilih jadwal
