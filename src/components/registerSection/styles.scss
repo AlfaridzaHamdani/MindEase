@@ -97,7 +97,7 @@
     }
 
     .submit-button {
-      background-color: #fbb03b;
+      background: linear-gradient(to right, #4136f1, #8743ff);
       color: white;
       border: none;
       padding: 12px 20px;
@@ -108,7 +108,7 @@
       transition: background-color 0.3s ease;
 
       &:hover {
-        background-color: #e09c28;
+        background: linear-gradient(to left, #4136f1, #8743ff);
       }
     }
   }
