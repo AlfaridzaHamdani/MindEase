@@ -8,7 +8,7 @@ const Navbar = () => {
   const itemRefs = useRef([]);
   const [hoveredItemWidth, setHoveredItemWidth] = useState(0);
   const [hoveredItemLeft, setHoveredItemLeft] = useState(0);
-  const [activeIndex, setActiveIndex] = useState(0); // Default activeIndex Home
+  const [activeIndex, setActiveIndex] = useState(2); // Default activeIndex Home
   const homeRef = useRef(null);
   const [homeWidth, setHomeWidth] = useState(null);
   const location = useLocation();
@@ -25,13 +25,22 @@ const Navbar = () => {
   }, []);
 
   useEffect(() => {
-    navbar.forEach((item, index) => {
-      if (location.pathname === `/${item.toLowerCase()}`) {
-        setActiveIndex(index);
-        handleSetActiveBackground(index, false); // Update background on page load
-      }
-    });
-  }, [location.pathname]);
+    // Update activeIndex based on location.pathname
+    if (location.pathname === "/") {
+      setActiveIndex(2); // Set Home as active
+      handleSetActiveBackground(2, false); // Ensure Home background is active
+    } else {
+      navbar.forEach((item, index) => {
+        if (location.pathname === `/${item.toLowerCase()}`) {
+          setActiveIndex(index);
+          handleSetActiveBackground(index, false); // Update background on page load
+        }
+      });
+    }
+
+    // Set colors on mount and refresh
+    updateLinkColors(activeIndex);
+  }, [location.pathname, activeIndex]);
 
   const handleSetActiveBackground = (index, isHovering) => {
     const item = itemRefs.current[index];
@@ -68,30 +77,30 @@ const Navbar = () => {
     });
 
     // Handle color changes
-    if (isHovering) {
-      // Set color white for hovered item, and keep active item white too
-      gsap.to(itemRefs.current[index], {
-        color: "#fcfcfc",
+    updateLinkColors(index, isHovering);
+  };
+
+  const updateLinkColors = (index, isHovering = false) => {
+    navbar.forEach((_, idx) => {
+      gsap.to(itemRefs.current[idx], {
+        color: idx === index ? "#fcfcfc" : "#2c2c2c", // Set color based on active index
         duration: 0.3,
         ease: "power3.out",
       });
+    });
 
-      // Keep the active item white
-      if (index !== activeIndex) {
-        gsap.to(itemRefs.current[activeIndex], {
-          color: "#2c2c2c",
-          duration: 0.3,
-          ease: "power3.out",
-        });
-      }
-    } else {
-      navbar.forEach((_, idx) => {
-        // Change active item color to white, others to dark
-        gsap.to(itemRefs.current[idx], {
-          color: idx === activeIndex ? "#fcfcfc" : "#2c2c2c",
-          duration: 0.3,
-          ease: "power3.out",
-        });
+    // Ensure active link is white
+    gsap.to(itemRefs.current[index], {
+      color: "#fcfcfc",
+      duration: 0.3,
+      ease: "power3.out",
+    });
+
+    if (isHovering) {
+      gsap.to(itemRefs.current[index], {
+        color: "#fcfcfc", // Highlight hovered item
+        duration: 0.3,
+        ease: "power3.out",
       });
     }
   };
@@ -125,15 +134,14 @@ const Navbar = () => {
 
   return (
     <nav className="navbar">
-      <div className="home" ref={homeRef}>
-        <Link
-          to="/"
-          onMouseEnter={() => handleSetActiveBackground(2, true)} // Hover Home
-          onMouseLeave={handleMouseLeaveHome} // Leave Home
-          onClick={() => handleLinkClick(2)} // Click Home
-        >
-          Home /
-        </Link>
+      <div
+        className="home"
+        ref={homeRef}
+        onMouseEnter={() => handleSetActiveBackground(2, true)} // Hover Home
+        onMouseLeave={handleMouseLeaveHome} // Leave Home
+        onClick={() => handleLinkClick(2)} // Click Home
+      >
+        <Link to="/">Home /</Link>
       </div>
 
       <div className="link" ref={linkRef} onMouseLeave={handleMouseLeaveLink}>
@@ -146,6 +154,7 @@ const Navbar = () => {
             onClick={() => handleLinkClick(index)}
             to={item === "Home" ? "/" : `/${item.toLowerCase()}`}
             className={({ isActive }) => `item ${isActive ? "active" : ""}`}
+            style={{ color: activeIndex === index ? "#fcfcfc" : "#2c2c2c" }} // Set text color directly based on active index
           >
             {item}
           </NavLink>
