@@ -5,6 +5,7 @@ import VisiMisiSection from "../components/visiMisiSection";
 import Story from "../components/storySection";
 import CTA from "../components/ctaSection";
 import Heading from "../components/heading";
+import Footer from "../components/Footer";
 
 const AboutUs = () => {
   return (
@@ -15,6 +16,7 @@ const AboutUs = () => {
       <VisiMisiSection />
       <Story />
       <CTA />
+      <Footer />
     </>
   );
 };
