@@ -4,7 +4,7 @@ import AboutUs from "../pages/AboutUs";
 import Appointment from "../pages/Appointment";
 import LifeCoach from "../pages/LifeCoach";
 import Psychology from "../pages/Psychology";
-import Form from "../pages/appointment/life-coach/Form";
+import Form from "../pages/Form";
 
 function RoutesIndex() {
   return (
@@ -22,6 +22,7 @@ function RoutesIndex() {
 
       {/* route for Form.jsx */}
       <Route path="/appointment/life-coach/form" element={<Form />} />
+      <Route path="/appointment/psychology/form" element={<Form />} />
     </Routes>
   );
 }

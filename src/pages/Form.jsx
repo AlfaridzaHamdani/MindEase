@@ -1,9 +1,9 @@
 import { useState } from "react";
-import Navbar from "../../../components/Navbar";
-import Footer from "../../../components/Footer";
-import Package from "../../../components/packageConselingSection";
-import Register from "../../../components/registerSection";
-import ProgressBar from "../../../components/progresBarSection";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import Package from "../components/packageConselingSection";
+import Register from "../components/registerSection";
+import ProgressBar from "../components/progresBarSection";
 
 const Form = () => {
   const [currentStep, setCurrentStep] = useState(1);
