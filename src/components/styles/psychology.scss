@@ -64,11 +64,15 @@ $blue: #155bff;
 
   @media (max-width: 1200px) {
     height: 400px;
+    .left {
+      display: none;
+    }
     .heading h2 {
       font-size: 120px;
     }
     .heading h3 {
       font-size: 30px;
+      padding: 0 0 20px 8px;
     }
   }
 
