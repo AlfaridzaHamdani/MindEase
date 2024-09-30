@@ -6,17 +6,25 @@ $white: #fcfcfc;
 
 .appointmentSection {
   padding: 64px 0;
+  @media (max-width: 768px) {
+    padding: 32px 0;
+  }
+
   .heading {
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
+
     .textReveal {
       h1 {
-        font-size: 64px;
+        font-size: 48px; // Adjusted for medium screens
         font-weight: 100;
         display: flex;
-        align-items: center;
+        flex-wrap: wrap; // Ensure text breaks properly on smaller screens
         justify-content: center;
+        align-items: center;
+        text-align: center;
 
         p {
           background-image: url("/public/brain.jpg");
@@ -25,6 +33,22 @@ $white: #fcfcfc;
           width: 200px;
           height: 64px;
           border-radius: 64px;
+        }
+
+        @media (max-width: 768px) {
+          font-size: 36px; // Smaller font size for smaller screens
+          p {
+            width: 150px;
+            height: 48px;
+          }
+        }
+
+        @media (max-width: 480px) {
+          font-size: 28px;
+          p {
+            width: 120px;
+            height: 40px;
+          }
         }
       }
     }
@@ -38,6 +62,18 @@ $white: #fcfcfc;
           border-radius: 64px;
           margin-left: 16px;
           margin-top: 16px;
+
+          @media (max-width: 768px) {
+            padding: 6px 24px;
+            margin-top: 12px;
+            margin-left: 12px;
+          }
+
+          @media (max-width: 480px) {
+            padding: 4px 16px;
+            margin-top: 8px;
+            margin-left: 8px;
+          }
         }
       }
     }
@@ -50,22 +86,41 @@ $white: #fcfcfc;
     width: 400px;
     height: fit-content;
 
+    @media (max-width: 768px) {
+      width: 100%;
+      align-items: center;
+      padding-bottom: 16px;
+    }
+
     .wrapper {
       display: flex;
       align-items: center;
       gap: 16px;
+      padding-top: 16px;
 
       img {
         background-color: $black;
         padding: 16px;
         border-radius: 32px;
         transform: rotate(-135deg);
+
+        @media (max-width: 480px) {
+          padding: 12px;
+        }
       }
 
       h3 {
         font-size: 40px;
         font-weight: 100;
         color: $black;
+
+        @media (max-width: 768px) {
+          font-size: 32px;
+        }
+
+        @media (max-width: 480px) {
+          font-size: 28px;
+        }
       }
     }
 
@@ -73,11 +128,24 @@ $white: #fcfcfc;
       font-size: 32px;
       font-weight: 100;
       color: $black-400;
+
+      @media (max-width: 768px) {
+        font-size: 28px;
+        text-align: center;
+      }
+
+      @media (max-width: 480px) {
+        font-size: 24px;
+      }
     }
   }
 
   .helped {
     align-items: end;
+
+    @media (max-width: 768px) {
+      align-items: center;
+    }
   }
 
   .card {
@@ -86,10 +154,26 @@ $white: #fcfcfc;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    flex-wrap: wrap; // Ensure it wraps on smaller screens
+
+    @media (max-width: 768px) {
+      padding: 32px 0;
+    }
+
     .container {
       width: 300px;
       height: 400px;
       position: relative;
+
+      @media (max-width: 768px) {
+        width: 200px;
+        height: 300px;
+      }
+
+      @media (max-width: 480px) {
+        width: 150px;
+        height: 250px;
+      }
 
       img {
         position: relative;
@@ -133,23 +217,51 @@ $white: #fcfcfc;
   position: relative;
   display: flex;
   justify-content: center;
+  align-items: center;
   padding: 32px 0;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding: 24px 0;
+  }
 
   .text {
     width: 500px;
-    height: 100%;
     margin-right: 32px;
+
+    @media (max-width: 768px) {
+      width: 100%;
+      margin-right: 0;
+      text-align: center;
+      margin-bottom: 24px;
+    }
 
     h1 {
       font-weight: 100;
       font-size: 64px;
       color: $black;
+
+      @media (max-width: 768px) {
+        font-size: 48px;
+      }
+
+      @media (max-width: 480px) {
+        font-size: 32px;
+      }
     }
 
     p {
       font-size: 12px;
       width: 60%;
       color: $black-400;
+
+      @media (max-width: 768px) {
+        width: 100%;
+      }
+
+      @media (max-width: 480px) {
+        font-size: 14px;
+      }
     }
   }
 
@@ -158,11 +270,18 @@ $white: #fcfcfc;
     height: fit-content;
     display: flex;
     flex-wrap: wrap;
-    flex-shrink: 4;
     flex-direction: column;
+
+    @media (max-width: 768px) {
+      align-items: center;
+    }
 
     .row {
       display: flex;
+
+      @media (max-width: 768px) {
+        justify-content: center;
+      }
 
       .consultant {
         width: fit-content;
@@ -173,6 +292,16 @@ $white: #fcfcfc;
           height: 150px;
           object-fit: cover;
           object-position: top;
+
+          @media (max-width: 768px) {
+            width: 120px;
+            height: 120px;
+          }
+
+          @media (max-width: 480px) {
+            width: 100px;
+            height: 100px;
+          }
         }
       }
     }
@@ -200,6 +329,10 @@ $white: #fcfcfc;
 .optionSection {
   padding: 80px 0;
 
+  @media (max-width: 768px) {
+    padding: 40px 0;
+  }
+
   a {
     text-decoration: none;
     color: $black;
@@ -211,6 +344,11 @@ $white: #fcfcfc;
     justify-content: space-between;
     gap: 64px;
 
+    @media (max-width: 768px) {
+      flex-direction: column;
+      gap: 32px;
+    }
+
     .card {
       width: 45vw;
       padding: 32px;
@@ -219,6 +357,15 @@ $white: #fcfcfc;
       justify-content: space-between;
       box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
         rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+
+      @media (max-width: 768px) {
+        width: 100%;
+        padding: 24px;
+      }
+
+      @media (max-width: 480px) {
+        padding: 16px;
+      }
 
       .left {
         display: flex;
@@ -229,10 +376,35 @@ $white: #fcfcfc;
         h1 {
           font-size: 40px;
           font-weight: 100;
+
+          @media (max-width: 768px) {
+            font-size: 32px;
+          }
+
+          @media (max-width: 480px) {
+            font-size: 24px;
+          }
         }
+
         .container {
           ul {
             padding: 0 0 0 64px;
+
+            @media (max-width: 768px) {
+              padding-left: 32px;
+            }
+
+            @media (max-width: 480px) {
+              padding-left: 16px;
+            }
+
+            li {
+              font-size: 18px;
+
+              @media (max-width: 480px) {
+                font-size: 16px;
+              }
+            }
           }
         }
       }
@@ -252,6 +424,14 @@ $white: #fcfcfc;
             padding: 8px;
             border-radius: 32px;
             background-color: $black;
+
+            @media (max-width: 768px) {
+              padding: 6px;
+            }
+
+            @media (max-width: 480px) {
+              padding: 4px;
+            }
           }
         }
       }
@@ -266,6 +446,7 @@ $white: #fcfcfc;
         rgba(135, 67, 255, 0.7)
       );
       backdrop-filter: blur(10px);
+
       .left {
         h1 {
           color: $white;
@@ -294,6 +475,7 @@ $white: #fcfcfc;
       transition: box-shadow 0.5s;
       border-radius: 0 16px 16px 0;
       background-color: $white;
+
       .left {
         button {
           img {
@@ -336,12 +518,29 @@ $white: #fcfcfc;
     align-items: center;
     gap: 80px;
 
+    @media (max-width: 768px) {
+      padding: 60px 0;
+      gap: 40px;
+    }
+
+    @media (max-width: 480px) {
+      padding: 40px 0;
+    }
+
     .heading {
       color: $white;
       text-align: center;
       width: 100%;
       font-weight: 100;
       font-size: 64px;
+
+      @media (max-width: 768px) {
+        font-size: 48px;
+      }
+
+      @media (max-width: 480px) {
+        font-size: 32px;
+      }
     }
 
     .containerCard {
@@ -350,21 +549,44 @@ $white: #fcfcfc;
       justify-content: center;
       gap: 80px;
 
+      @media (max-width: 768px) {
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+      }
+
       .card {
         height: fit-content;
-        background: rgba(255, 255, 255, 0.3); /* Warna semi-transparan */
+        background: rgba(255, 255, 255, 0.3);
         color: $black;
         width: 450px;
         padding: 32px;
         border-radius: 16px;
-        backdrop-filter: blur(10px); /* Efek blur untuk glassmorphism */
-        -webkit-backdrop-filter: blur(10px); /* Untuk dukungan browser Safari */
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Tambahkan bayangan untuk efek depth */
-        border: 1px solid rgba(255, 255, 255, 0.2); /* Batas semi-transparan */
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
         color: $white;
+
+        @media (max-width: 768px) {
+          width: 100%;
+          padding: 24px;
+        }
+
+        @media (max-width: 480px) {
+          padding: 16px;
+        }
 
         h1 {
           font-size: 32px;
+
+          @media (max-width: 768px) {
+            font-size: 28px;
+          }
+
+          @media (max-width: 480px) {
+            font-size: 24px;
+          }
         }
 
         .wrapper {
@@ -372,6 +594,16 @@ $white: #fcfcfc;
           display: flex;
           flex-direction: column;
           gap: 16px;
+
+          @media (max-width: 768px) {
+            margin-top: 16px;
+            gap: 12px;
+          }
+
+          @media (max-width: 480px) {
+            margin-top: 12px;
+            gap: 8px;
+          }
         }
       }
     }
@@ -514,11 +746,28 @@ $white: #fcfcfc;
       width: fit-content;
       font-size: 64px;
       font-weight: 100;
+
+      @media (max-width: 768px) {
+        font-size: 48px;
+      }
+
+      @media (max-width: 480px) {
+        font-size: 32px;
+      }
     }
 
     p {
       margin-top: 24px;
       width: 100%;
+      font-size: 16px;
+
+      @media (max-width: 768px) {
+        font-size: 14px;
+      }
+
+      @media (max-width: 480px) {
+        font-size: 12px;
+      }
     }
   }
 
@@ -527,6 +776,10 @@ $white: #fcfcfc;
     display: flex;
     flex-direction: column;
     gap: 8px;
+
+    @media (max-width: 768px) {
+      flex-basis: 100%;
+    }
 
     .question {
       box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
@@ -537,16 +790,50 @@ $white: #fcfcfc;
       flex-direction: column;
       gap: 8px;
 
+      @media (max-width: 768px) {
+        padding: 16px;
+      }
+
+      @media (max-width: 480px) {
+        padding: 12px;
+      }
+
       h1 {
         font-size: 24px;
         font-weight: 600;
         color: $black;
+
+        @media (max-width: 768px) {
+          font-size: 20px;
+        }
+
+        @media (max-width: 480px) {
+          font-size: 18px;
+        }
       }
 
       p {
         font-size: 16px;
         color: $black-400;
+
+        @media (max-width: 768px) {
+          font-size: 14px;
+        }
+
+        @media (max-width: 480px) {
+          font-size: 12px;
+        }
       }
     }
+  }
+
+  @media (max-width: 768px) {
+    padding: 60px 4vw;
+    gap: 24px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 40px 3vw;
+    gap: 16px;
   }
 }
