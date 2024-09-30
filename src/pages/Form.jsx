@@ -21,7 +21,7 @@ const Form = () => {
 
       {currentStep === 1 && <Package handleStepChange={handleStepChange} />}
       {currentStep === 2 && <Register handleStepChange={handleStepChange} />}
-      {currentStep === 3 && <div>Pembayaran Section</div>}
+      {currentStep === 3 && <div></div>}
 
       <Footer />
     </>
