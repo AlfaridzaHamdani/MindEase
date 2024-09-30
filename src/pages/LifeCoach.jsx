@@ -4,7 +4,9 @@ import Heading from "../components/heading";
 import { Link } from "react-router-dom";
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
-
+import Bola from "../../public/bolaKusut.jpg";
+import Hero from "../../public/HeroImage.jpg";
+import User from "../../public/user5.jpg";
 const Schedule = ({ day, date, month, booked }) => {
   return (
     <div className={` ${booked == 25 ? `full` : `card`}`}>
@@ -267,21 +269,9 @@ const LifeCoach = () => {
         <h1 className="heading">3 Step’s To Consult</h1>
         <div className="container">
           <div className="top">
-            <div className="img"></div>
-            <div className="line">
-              <div className="rounded"></div>
-              <hr />
-              <div className="rounded"></div>
+            <div className="img">
+              <img src={User} alt="image" className="img-inside" />
             </div>
-            <div className="img"></div>
-            <div className="line">
-              <div className="rounded"></div>
-              <hr />
-              <div className="rounded"></div>
-            </div>
-            <div className="img"></div>
-          </div>
-          <div className="bot">
             <div className="card">
               <h1>Choose Product</h1>
               <p>
@@ -289,12 +279,18 @@ const LifeCoach = () => {
                 cottage calling.
               </p>
             </div>
+            <div className="img">
+              <img src={Hero} alt="image" className="img-inside" />
+            </div>
             <div className="card">
               <h1>Choose Your Session</h1>
               <p>
                 Conveying or northward offending admitting perfectly my. Colonel
                 gravit and moonlight.
               </p>
+            </div>
+            <div className="img">
+              <img src={Bola} alt="image" className="img-inside" />
             </div>
             <div className="card">
               <h1>Start Consult</h1>

@@ -14,13 +14,17 @@ $blue: #155bff;
   height: 500px;
   margin-bottom: 80px;
 
-  .left {
+  .left,
+  .right {
     flex-basis: 50%;
-    background-color: #155bff;
     height: 100%;
-    padding: 64px;
     display: flex;
     align-items: end;
+  }
+
+  .left {
+    background-color: #155bff;
+    padding: 64px;
     p {
       width: 300px;
       color: $white;
@@ -33,11 +37,7 @@ $blue: #155bff;
     background-image: url("/public/brain.jpg");
     background-size: cover;
     background-position: center;
-    height: 100%;
-    flex-basis: 50%;
     color: $white;
-    display: flex;
-    align-items: end;
     h2 {
       padding: 0 0 150px 8px;
     }
@@ -59,6 +59,70 @@ $blue: #155bff;
       font-size: 160px;
       margin: 0;
       line-height: 70%;
+    }
+  }
+
+  @media (max-width: 1200px) {
+    height: 400px;
+    .heading h2 {
+      font-size: 120px;
+    }
+    .heading h3 {
+      font-size: 30px;
+    }
+  }
+
+  @media (max-width: 992px) {
+    flex-direction: column;
+    height: auto;
+    .left,
+    .right {
+      flex-basis: 100%;
+      height: 300px;
+    }
+    .heading {
+      left: 50%;
+      top: 40%;
+      transform: translate(-50%, -40%);
+      h2 {
+        font-size: 100px;
+      }
+      h3 {
+        font-size: 24px;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .left,
+    .right {
+      height: 200px;
+    }
+    .heading {
+      top: 30%;
+      h2 {
+        font-size: 80px;
+      }
+      h3 {
+        font-size: 20px;
+      }
+    }
+  }
+
+  @media (max-width: 576px) {
+    .left,
+    .right {
+      height: 150px;
+      padding: 32px;
+    }
+    .heading {
+      top: 20%;
+      h2 {
+        font-size: 60px;
+      }
+      h3 {
+        font-size: 16px;
+      }
     }
   }
 }
@@ -94,9 +158,11 @@ $blue: #155bff;
 .explainSection {
   width: 100%;
   padding: 0 1vw 80px 1vw;
+
   .container {
     padding: 32px 4vw;
     display: flex;
+    flex-direction: row;
     border-radius: 16px;
     background: linear-gradient(
       45deg,
@@ -110,11 +176,12 @@ $blue: #155bff;
       padding: 32px;
 
       h1 {
-        font-size: 64px;
+        font-size: 48px;
         font-weight: 100;
         color: $white;
         margin-bottom: 24px;
       }
+
       p {
         width: 80%;
         font-size: 14px;
@@ -133,17 +200,19 @@ $blue: #155bff;
         display: flex;
         align-items: center;
         gap: 8px;
-        width: 40%;
+        width: 100%;
         padding: 16px;
         margin-bottom: 16px;
-        h1 {
-          font-size: 24px;
+        justify-content: center;
+
+        h1:nth-of-type(1) {
+          font-size: 48px;
           font-weight: 100;
           color: $white;
         }
 
-        h1:nth-of-type(1) {
-          font-size: 64px;
+        h1:nth-of-type(2) {
+          font-size: 24px;
           font-weight: 100;
           color: $white;
         }
@@ -151,24 +220,149 @@ $blue: #155bff;
 
       .containerCard {
         display: flex;
-        justify-content: space-evenly;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 16px;
+
         .card {
-          width: 30%;
-          padding: 32px;
+          width: 100%;
+          max-width: 300px;
+          padding: 24px;
           border-radius: 16px;
           background: rgba(255, 255, 255, 0.3);
-          border-radius: 16px;
           backdrop-filter: blur(10px);
-          -webkit-backdrop-filter: blur(10px);
           box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
           border: 1px solid rgba(255, 255, 255, 0.2);
           color: $white;
           transition: box-shadow 0.5s;
+          text-align: center;
         }
 
         .card:hover {
           box-shadow: rgba(65, 54, 241, 0.48) 6px 2px 16px 0px,
             rgba(135, 67, 255, 0.8) -6px -2px 16px 0px;
+        }
+      }
+    }
+  }
+
+  /* Medium screens (Tablets) */
+  @media (max-width: 1024px) {
+    .container {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+
+      .left,
+      .right {
+        width: 100%;
+      }
+
+      .left {
+        h1 {
+          font-size: 40px;
+        }
+
+        p {
+          font-size: 16px;
+          width: 100%;
+        }
+      }
+
+      .right {
+        .wrapper {
+          h1:nth-of-type(1) {
+            font-size: 56px;
+          }
+
+          h1:nth-of-type(2) {
+            font-size: 20px;
+          }
+        }
+      }
+    }
+
+    .containerCard {
+      .card {
+        width: 100%;
+        padding: 24px;
+      }
+    }
+  }
+
+  /* Small screens (Mobile) */
+  @media (max-width: 768px) {
+    .container {
+      padding: 16px;
+
+      .left {
+        padding: 16px;
+
+        h1 {
+          font-size: 32px;
+        }
+
+        p {
+          font-size: 14px;
+          width: 100%;
+        }
+      }
+
+      .right {
+        .wrapper {
+          flex-direction: column;
+
+          h1:nth-of-type(1) {
+            font-size: 48px;
+          }
+
+          h1:nth-of-type(2) {
+            font-size: 18px;
+          }
+        }
+
+        .containerCard {
+          display: block;
+
+          .card {
+            width: 100%;
+            margin-bottom: 16px;
+          }
+        }
+      }
+    }
+  }
+
+  /* Extra small screens */
+  @media (max-width: 480px) {
+    .container {
+      padding: 8px;
+
+      .left {
+        h1 {
+          font-size: 24px;
+        }
+
+        p {
+          font-size: 12px;
+        }
+      }
+
+      .right {
+        .wrapper {
+          h1:nth-of-type(1) {
+            font-size: 40px;
+          }
+
+          h1:nth-of-type(2) {
+            font-size: 16px;
+          }
+        }
+
+        .containerCard {
+          .card {
+            padding: 16px;
+          }
         }
       }
     }
@@ -182,6 +376,14 @@ $blue: #155bff;
     font-size: 64px;
     font-weight: 100;
     color: $black;
+
+    @media (max-width: 768px) {
+      font-size: 48px;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 36px;
+    }
   }
 
   .container {
@@ -190,7 +392,22 @@ $blue: #155bff;
     gap: 16px;
     margin: 32px 0;
 
-    .card {
+    @media (max-width: 1024px) {
+      gap: 12px;
+    }
+
+    @media (max-width: 768px) {
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    @media (max-width: 480px) {
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .card,
+    .full {
       width: 180px;
       padding: 32px;
       border-radius: 16px;
@@ -199,15 +416,42 @@ $blue: #155bff;
       display: flex;
       flex-direction: column;
       align-items: center;
+
+      @media (max-width: 768px) {
+        width: 160px;
+        padding: 24px;
+      }
+
+      @media (max-width: 480px) {
+        width: 100%;
+        padding: 20px;
+      }
+
       h3 {
         font-size: 24px;
         font-weight: 100;
         color: $black;
         margin-bottom: 8px;
+
+        @media (max-width: 768px) {
+          font-size: 20px;
+        }
+
+        @media (max-width: 480px) {
+          font-size: 18px;
+        }
       }
 
       h3:nth-of-type(1) {
         font-size: 18px;
+
+        @media (max-width: 768px) {
+          font-size: 16px;
+        }
+
+        @media (max-width: 480px) {
+          font-size: 14px;
+        }
       }
 
       .status {
@@ -215,11 +459,20 @@ $blue: #155bff;
         gap: 8px;
         align-items: center;
         flex-direction: column;
+
         h2 {
           margin-top: 16px;
           font-size: 22px;
           font-weight: 100;
           color: #8743ff;
+
+          @media (max-width: 768px) {
+            font-size: 20px;
+          }
+
+          @media (max-width: 480px) {
+            font-size: 18px;
+          }
 
           .green {
             color: $green;
@@ -233,28 +486,44 @@ $blue: #155bff;
         h3 {
           font-size: 16px;
           color: $black-400;
+
+          @media (max-width: 768px) {
+            font-size: 14px;
+          }
+
+          @media (max-width: 480px) {
+            font-size: 12px;
+          }
         }
       }
     }
 
     .full {
-      width: 180px;
-      padding: 32px;
-      border-radius: 16px;
-      box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
-        rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
       h3 {
         font-size: 24px;
         font-weight: 100;
         color: $black-300;
         margin-bottom: 8px;
+
+        @media (max-width: 768px) {
+          font-size: 20px;
+        }
+
+        @media (max-width: 480px) {
+          font-size: 18px;
+        }
       }
 
       h3:nth-of-type(1) {
         font-size: 18px;
+
+        @media (max-width: 768px) {
+          font-size: 16px;
+        }
+
+        @media (max-width: 480px) {
+          font-size: 14px;
+        }
       }
 
       .status {
@@ -262,16 +531,33 @@ $blue: #155bff;
         gap: 8px;
         align-items: center;
         flex-direction: column;
+
         h2 {
           margin-top: 16px;
           font-size: 22px;
           font-weight: 100;
           color: $black-300;
+
+          @media (max-width: 768px) {
+            font-size: 20px;
+          }
+
+          @media (max-width: 480px) {
+            font-size: 18px;
+          }
         }
 
         h3 {
           font-size: 16px;
           color: $black-300;
+
+          @media (max-width: 768px) {
+            font-size: 14px;
+          }
+
+          @media (max-width: 480px) {
+            font-size: 12px;
+          }
         }
       }
     }
@@ -279,13 +565,13 @@ $blue: #155bff;
 }
 
 .pricingSection {
-  height: 100vh;
   padding: 64px 0;
+  height: auto;
 
   .heading {
     text-align: center;
     width: 100%;
-    font-size: 64px;
+    font-size: 48px;
     font-weight: 100;
     color: $black;
   }
@@ -294,13 +580,14 @@ $blue: #155bff;
     width: 100%;
     display: flex;
     justify-content: center;
-    gap: 64px;
-    padding: 32px 0;
+    flex-wrap: wrap; /* Allows the cards to wrap on smaller screens */
+    gap: 32px; /* Reduced gap for smaller screens */
+    padding: 32px 16px; /* Adjusted padding */
   }
 
   .card {
-    width: 300px;
-    height: fit-content;
+    width: 90%;
+    max-width: 300px; /* Sets a max width for larger screens */
     border-radius: 16px;
     padding: 16px;
     display: flex;
@@ -311,10 +598,10 @@ $blue: #155bff;
       rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 
     .top {
-      height: 25%;
       display: flex;
       flex-direction: column;
       gap: 8px;
+
       .level {
         background: linear-gradient(
           45deg,
@@ -326,6 +613,7 @@ $blue: #155bff;
         width: fit-content;
         padding: 8px 16px;
         border-radius: 16px;
+
         p {
           font-size: 20px;
         }
@@ -338,8 +626,6 @@ $blue: #155bff;
     }
 
     .price {
-      width: 100%;
-      height: 20%;
       display: flex;
       flex-direction: column;
       gap: 16px;
@@ -361,9 +647,6 @@ $blue: #155bff;
     }
 
     .feature {
-      width: 100%;
-      height: 35%;
-
       ul {
         padding: 0 0 0 16px;
         li {
@@ -375,15 +658,12 @@ $blue: #155bff;
     }
 
     .cta {
-      width: 100%;
-      height: 15%;
       display: flex;
       flex-direction: column;
       gap: 16px;
 
       button {
         width: 100%;
-        height: 100%;
         color: $black;
         border: none;
         border-radius: 16px;
@@ -392,7 +672,6 @@ $blue: #155bff;
         cursor: pointer;
         padding: 16px 0;
         background-color: transparent;
-
         box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
           rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
       }
@@ -443,6 +722,74 @@ $blue: #155bff;
       }
     }
   }
+
+  /* Responsive adjustments */
+  @media (max-width: 1024px) {
+    .heading {
+      font-size: 40px;
+    }
+
+    .container {
+      gap: 24px;
+    }
+
+    .card {
+      max-width: 250px;
+      padding: 12px;
+
+      .price h1 {
+        font-size: 40px;
+        h2 {
+          font-size: 20px;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .heading {
+      font-size: 36px;
+    }
+
+    .container {
+      padding: 16px;
+      gap: 16px;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 220px;
+
+      .price h1 {
+        font-size: 36px;
+        h2 {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    .heading {
+      font-size: 28px;
+    }
+
+    .card {
+      max-width: 100%;
+      padding: 8px;
+
+      .price h1 {
+        font-size: 32px;
+        h2 {
+          font-size: 16px;
+        }
+      }
+
+      .cta button {
+        font-size: 16px;
+      }
+    }
+  }
 }
 
 .stepsSection {
@@ -450,39 +797,40 @@ $blue: #155bff;
     text-align: center;
     font-weight: 100;
     font-size: 64px;
+
+    @media (max-width: 1024px) {
+      font-size: 48px;
+    }
+
+    @media (max-width: 768px) {
+      font-size: 36px;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 28px;
+    }
   }
 
   .container {
-    height: fit-content;
     display: flex;
-    justify-content: center;
-    margin: 80px 0;
-    position: relative;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 80px 0;
 
     .top {
       display: flex;
       justify-content: center;
-      .line {
-        width: 200px;
-        margin: 0 32px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+      align-items: center;
+      gap: 32px;
 
-        .rounded {
-          width: 25px;
-          height: 25px;
-          background-color: #8743ff;
-          border-radius: 50px;
-        }
+      @media (max-width: 1024px) {
+        gap: 24px;
+      }
 
-        hr {
-          width: 50%;
-          height: 1px;
-          border: none;
-          border-top: 1px dashed #8743ff;
-        }
+      @media (max-width: 768px) {
+        flex-direction: column;
+        gap: 16px;
       }
 
       .img {
@@ -490,13 +838,29 @@ $blue: #155bff;
         height: 100px;
         background-color: #8743ff;
         border-radius: 16px;
-      }
-    }
+        display: flex; /* Add this line */
+        align-items: center; /* Center vertically */
+        justify-content: center; /* Center horizontally */
+        flex: auto;
 
-    .bot {
-      display: flex;
-      justify-content: center;
-      gap: 80px;
+        .img-inside {
+          width: 95px;
+          height: 95px;
+          border-radius: 16px;
+          aspect-ratio: 3;
+        }
+
+        @media (max-width: 768px) {
+          width: 80px;
+          height: 80px;
+        }
+
+        @media (max-width: 480px) {
+          width: 60px;
+          height: 60px;
+        }
+      }
+
       .card {
         width: 300px;
         padding: 32px;
@@ -504,17 +868,44 @@ $blue: #155bff;
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 32px;
+        text-align: center;
+        gap: 16px;
+        background-color: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+        @media (max-width: 1024px) {
+          width: 250px;
+          padding: 24px;
+        }
+
+        @media (max-width: 768px) {
+          width: 100%;
+          padding: 16px;
+        }
 
         h1 {
           font-size: 24px;
-          font-weight: 100;
+
+          @media (max-width: 768px) {
+            font-size: 20px;
+          }
+
+          @media (max-width: 480px) {
+            font-size: 18px;
+          }
         }
 
         p {
           font-size: 16px;
-          color: $black-400;
-          text-align: center;
+          color: #666;
+
+          @media (max-width: 768px) {
+            font-size: 14px;
+          }
+
+          @media (max-width: 480px) {
+            font-size: 12px;
+          }
         }
       }
     }
@@ -533,7 +924,7 @@ $blue: #155bff;
     justify-content: center;
     padding: 0 4vw;
     width: 100%;
-    height: 100%;
+    height: 60%;
     background-color: $blue;
     border-radius: 16px;
 
@@ -543,6 +934,20 @@ $blue: #155bff;
       color: $white;
       font-weight: 100;
       font-size: 64px;
+
+      @media (max-width: 1024px) {
+        font-size: 48px;
+      }
+
+      @media (max-width: 768px) {
+        font-size: 36px;
+        width: 80%;
+      }
+
+      @media (max-width: 480px) {
+        font-size: 28px;
+        width: 90%;
+      }
     }
 
     a {
@@ -556,6 +961,21 @@ $blue: #155bff;
       font-weight: 600;
       box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
         rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+
+      @media (max-width: 1024px) {
+        font-size: 20px;
+        padding: 14px 28px;
+      }
+
+      @media (max-width: 768px) {
+        font-size: 18px;
+        padding: 12px 24px;
+      }
+
+      @media (max-width: 480px) {
+        font-size: 16px;
+        padding: 10px 20px;
+      }
     }
   }
 }
@@ -571,4 +991,14 @@ $blue: #155bff;
   pointer-events: none;
   z-index: 10;
   mix-blend-mode: hard-light;
+
+  @media (max-width: 768px) {
+    width: 100px;
+    height: 100px;
+  }
+
+  @media (max-width: 480px) {
+    width: 80px;
+    height: 80px;
+  }
 }
