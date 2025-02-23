@@ -5,7 +5,7 @@ import VisiMisiSection from "../components/visiMisiSection";
 import Story from "../components/storySection";
 import CTA from "../components/ctaSection";
 import Heading from "../components/heading";
-import Footer from "../components/Footer";
+import Footer from "../components/footer";
 
 const AboutUs = () => {
   return (

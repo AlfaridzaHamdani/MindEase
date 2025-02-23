@@ -1,5 +1,5 @@
 import "../components/styles/psychology.scss";
-import Footer from "../components/Footer";
+import Footer from "../components/footer";
 import Heading from "../components/heading";
 import { Link } from "react-router-dom";
 import { useEffect, useRef } from "react";

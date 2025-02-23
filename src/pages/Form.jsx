@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
+import Footer from "../components/footer";
 import Package from "../components/packageConselingSection";
 import Register from "../components/registerSection";
 import ProgressBar from "../components/progresBarSection";
