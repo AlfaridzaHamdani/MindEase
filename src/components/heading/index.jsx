@@ -6,9 +6,9 @@ const index = () => {
 
   const imgSrc =
     location.pathname === "/appointment/psychology"
-      ? "../public/Logo.svg"
+      ? "./Logo.svg"
       : "./Logo.svg" || location.pathname === "/appointment/life-coach"
-      ? "../public/Logo.svg"
+      ? "./Logo.svg"
       : "./Logo.svg";
 
   return (

@@ -1,5 +1,5 @@
 import "../components/styles/appointment.scss";
-import Footer from "../components/Footer";
+import Footer from "../components/footer";
 import { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import Heading from "../components/heading";
