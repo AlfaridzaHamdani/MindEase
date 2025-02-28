@@ -8,7 +8,7 @@ const Navbar = () => {
   const itemRefs = useRef([]);
   const [hoveredItemWidth, setHoveredItemWidth] = useState(0);
   const [hoveredItemLeft, setHoveredItemLeft] = useState(0);
-  const [activeIndex, setActiveIndex] = useState(2); // Default activeIndex Home
+  const [activeIndex, setActiveIndex] = useState(2);
   const homeRef = useRef(null);
   const [homeWidth, setHomeWidth] = useState(null);
   const location = useLocation();
