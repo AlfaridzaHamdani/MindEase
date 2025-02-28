@@ -22,9 +22,12 @@ const BrandSection = () => {
     <section className="brands">
       <hr />
       <div className="brand-logos">
-        {images.map((image, index) => (
-          <img key={index} src={image.src} alt={image.alt} loading="lazy" />
-        ))}
+        {images.map(
+          (image, index) => (
+            console.log(image.src),
+            (<img key={index} src={image.src} alt={image.alt} loading="lazy" />)
+          )
+        )}
       </div>
       <hr />
     </section>
