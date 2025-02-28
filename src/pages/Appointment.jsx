@@ -102,23 +102,23 @@ const Appointment = () => {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
-    gsap.utils.toArray("h1, .h3, .p").forEach((text) => {
-      gsap.fromTo(
-        text,
-        { y: 64, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          scrollTrigger: {
-            trigger: text,
-            start: "top bottom",
-            toggleActions: "play none none reverse",
-          },
-          duration: 0.8,
-          delay: 0.3,
-        }
-      );
-    });
+    // gsap.utils.toArray("h1, .h3, .p").forEach((text) => {
+    //   gsap.fromTo(
+    //     text,
+    //     { y: 64, opacity: 0 },
+    //     {
+    //       y: 0,
+    //       opacity: 1,
+    //       scrollTrigger: {
+    //         trigger: text,
+    //         start: "top bottom",
+    //         toggleActions: "play none none reverse",
+    //       },
+    //       duration: 0.8,
+    //       delay: 0.3,
+    //     }
+    //   );
+    // });
 
     gsap.fromTo(
       ".one",

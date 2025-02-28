@@ -6,19 +6,19 @@ const index = () => {
   const imgRef = useRef(null);
 
   const handleMouseEnter = () => {
-    gsap.to(imgRef.current, {
-      scale: 1.1, // Zoom in
-      duration: 0.5,
-      ease: "power2.out",
-    });
+    // gsap.to(imgRef.current, {
+    //   scale: 1.1, // Zoom in
+    //   duration: 0.5,
+    //   ease: "power2.out",
+    // });
   };
 
   const handleMouseLeave = () => {
-    gsap.to(imgRef.current, {
-      scale: 1, // Kembali ke ukuran semula
-      duration: 0.5,
-      ease: "power2.out",
-    });
+    // gsap.to(imgRef.current, {
+    //   scale: 1, // Kembali ke ukuran semula
+    //   duration: 0.5,
+    //   ease: "power2.out",
+    // });
   };
 
   return (

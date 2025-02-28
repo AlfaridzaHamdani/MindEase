@@ -21,6 +21,7 @@ $border-radius: 32px;
 
   @media (max-width: 768px) {
     padding: $padding-medium;
+    height: fit-content;
   }
 
   h1 {
@@ -50,6 +51,16 @@ $border-radius: 32px;
       }
 
       .textReveal {
+        @media (max-width: 575px) {
+          .h2 {
+            font-size: 16px;
+          }
+        }
+
+        @media (max-width: 768px) {
+          width: 100%;
+        }
+
         h2 {
           line-height: 150%;
           font-size: $font-size-medium;
@@ -86,6 +97,7 @@ $border-radius: 32px;
 
         @media (max-width: 768px) {
           width: 100%;
+          margin: 16px 0;
         }
       }
 
@@ -103,8 +115,9 @@ $border-radius: 32px;
         transition: box-shadow 0.5s;
 
         @media (max-width: 768px) {
+          margin: 0 auto;
           justify-content: center;
-          width: 100%;
+          width: 200px;
         }
 
         img {
@@ -133,7 +146,7 @@ $border-radius: 32px;
 
       @media (max-width: 768px) {
         flex-basis: 100%;
-        padding: $padding-small;
+        display: none;
       }
 
       .wrapper {

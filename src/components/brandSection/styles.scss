@@ -12,6 +12,10 @@ $white: #fcfcfc;
   flex-direction: column;
   padding: 64px 0;
 
+  @media (max-width: 768px) {
+    padding: 16px 0;
+  }
+
   hr {
     width: 80%;
     border: 1px solid $black-200;

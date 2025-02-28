@@ -17,44 +17,42 @@ const Index = () => {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
-    gsap.utils.toArray("h1").forEach((text) => {
-      gsap.fromTo(
-        text,
-        { y: 64, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          scrollTrigger: {
-            trigger: text,
-            start: "top 90%",
-            toggleActions: "play none none reverse",
-          },
-          duration: 0.8,
-        }
-      );
-    });
+    // gsap.utils.toArray("h1").forEach((text) => {
+    //   gsap.fromTo(
+    //     text,
+    //     { y: 64, opacity: 0 },
+    //     {
+    //       y: 0,
+    //       opacity: 1,
+    //       scrollTrigger: {
+    //         trigger: text,
+    //         start: "top 90%",
+    //         toggleActions: "play none none reverse",
+    //       },
+    //       duration: 0.8,
+    //     }
+    //   );
+    // });
   }, []);
 
   const text =
     "Connecting you with qualified psychologists for better mental well-being.";
 
-  // Memisahkan teks menjadi per kata
   const words = text.split(" ");
 
   useEffect(() => {
-    // Animasi untuk setiap kata
-    words.forEach((word, index) => {
-      gsap.fromTo(
-        `.word-${index}`,
-        { y: 30, opacity: 0 }, // Awal: y = 30, opacity = 0
-        {
-          y: 0, // Akhir: y = 0
-          opacity: 1, // Akhir: opacity = 1
-          delay: index * 0.1, // Penundaan untuk setiap kata
-          duration: 0.5, // Durasi animasi
-        }
-      );
-    });
+    // words.forEach((word, index) => {
+    //   gsap.fromTo(
+    //     `.word-${index}`,
+    //     { y: 30, opacity: 0 }, // Awal: y = 30, opacity = 0
+    //     {
+    //       y: 0, // Akhir: y = 0
+    //       opacity: 1, // Akhir: opacity = 1
+    //       delay: index * 0.1, // Penundaan untuk setiap kata
+    //       duration: 0.5, // Durasi animasi
+    //     }
+    //   );
+    // });
   }, [words]);
 
   return (
