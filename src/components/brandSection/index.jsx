@@ -2,7 +2,7 @@ import React from "react";
 import "./styles.scss";
 
 import Bca from "/Brands/Bca.png";
-import BI from "/Brands/Bi.png";
+import BI from "/Brands/BankIndonesia.png";
 import Google from "/Brands/Google.png";
 import Mandiri from "/Brands/Mandiri.png";
 import Microsoft from "/Brands/Microsoft.png";
