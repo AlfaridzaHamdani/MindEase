@@ -483,7 +483,7 @@ const index$1 = () => {
   ] }) });
 };
 const Bca = "/Brands/Bca.png";
-const BI = "/Brands/Bi.png";
+const BI = "/Brands/BankIndonesia.png";
 const Google = "/Brands/Google.png";
 const Mandiri = "/Brands/Mandiri.png";
 const Microsoft = "/Brands/Microsoft.png";
