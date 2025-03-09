@@ -190,7 +190,7 @@ const Appointment = () => {
           </div>
 
           <div className="container">
-            <img src="./user1.jpg" alt="" />
+            <img src="/user1.jpg" alt="" />
             <div className="one"></div>
             <div className="second"></div>
             <div className="third"></div>

@@ -1,12 +1,12 @@
 import React from "react";
 import "./styles.scss";
 
-import Bca from "/Brands/Bca.png";
-import BI from "/Brands/Bi.png";
-import Google from "/Brands/Google.png";
-import Mandiri from "/Brands/Mandiri.png";
-import Microsoft from "/Brands/Microsoft.png";
-import Traveloka from "/Brands/Traveloka.png";
+import Bca from "/Brands/Bca.svg";
+import BI from "/Brands/Bi.svg";
+import Google from "/Brands/Google.svg";
+import Mandiri from "/Brands/Mandiri.svg";
+import Microsoft from "/Brands/Microsoft.svg";
+import Traveloka from "/Brands/Traveloka.svg";
 
 const images = [
   { src: Bca, alt: "BCA Logo" },

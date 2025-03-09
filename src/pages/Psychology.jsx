@@ -6,7 +6,7 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import Bola from "../../public/bolaKusut.jpg";
 import Hero from "../../public/HeroImage.jpg";
-import User from "../../public/user5.jpg";
+import User from "/user5.jpg";
 
 const Schedule = ({ day, date, month, booked }) => {
   return (

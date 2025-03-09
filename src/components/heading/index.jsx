@@ -6,10 +6,10 @@ const index = () => {
 
   const imgSrc =
     location.pathname === "/appointment/psychology"
-      ? "./Logo.svg"
-      : "./Logo.svg" || location.pathname === "/appointment/life-coach"
-      ? "./Logo.svg"
-      : "./Logo.svg";
+      ? "/Logo.svg"
+      : "/Logo.svg" || location.pathname === "/appointment/life-coach"
+      ? "/Logo.svg"
+      : "/Logo.svg";
 
   return (
     <>
