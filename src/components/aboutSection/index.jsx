@@ -63,12 +63,12 @@ const index = () => {
             <div className="wrapper">
               <div></div>
               <img
-                src="./HeroImage.jpg"
+                src="./HeroImage.webp"
                 alt="Modern healthcare facility"
                 className="firstImg"
               />
               <img
-                src="./HeroImage2.jpg"
+                src="./HeroImage2.webp"
                 alt="Healthcare professionals discussing"
                 className="secondImg"
               />

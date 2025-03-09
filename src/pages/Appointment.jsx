@@ -1,6 +1,6 @@
 import "../components/styles/appointment.scss";
 import Footer from "../components/footer";
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import Heading from "../components/heading";
 import { useEffect } from "react";
@@ -10,7 +10,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 const Consultant = ({ name }) => {
   return (
     <div className="consultant">
-      <img src={`./${name}.jpg`} alt={name} className={name} loading="lazy" />
+      <img src={`./${name}.webp`} alt={name} className={name} loading="lazy" />
     </div>
   );
 };
@@ -29,32 +29,30 @@ const Question = ({ question, answer, isActive, onClick }) => {
 };
 
 const Counter = ({ targetValue }) => {
-  const counterRef = useRef(null);
-  const startValue = 0;
+  const [count, setCount] = useState(0);
 
   useEffect(() => {
-    const duration = 2;
+    let start = 0;
+    const end = targetValue;
+    const duration = 2000;
+    const incrementTime = 1000 / 60;
+    const totalIncrements = duration / incrementTime;
+    const incrementValue = end / totalIncrements;
 
-    gsap.to(
-      { value: startValue },
-      {
-        value: targetValue,
-        duration: duration,
-        onUpdate: function () {
-          counterRef.current.innerText = `${Math.floor(
-            this.targets()[0].value
-          )}+`;
-        },
-        ease: "power1.out",
+    const updateCounter = () => {
+      start += incrementValue;
+      if (start < end) {
+        setCount(Math.floor(start));
+        requestAnimationFrame(updateCounter);
+      } else {
+        setCount(end);
       }
-    );
+    };
+
+    requestAnimationFrame(updateCounter);
   }, [targetValue]);
 
-  return (
-    <h3 className="h3" ref={counterRef}>
-      {startValue}+
-    </h3>
-  );
+  return <h3 className="h3">{count}+</h3>;
 };
 
 const Appointment = () => {
@@ -93,32 +91,18 @@ const Appointment = () => {
     },
   ];
 
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndexes, setActiveIndexes] = useState([]);
 
   const handleClick = (index) => {
-    setActiveIndex(activeIndex === index ? null : index);
+    setActiveIndexes((prevIndexes) =>
+      prevIndexes.includes(index)
+        ? prevIndexes.filter((i) => i !== index)
+        : [...prevIndexes, index]
+    );
   };
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
-
-    // gsap.utils.toArray("h1, .h3, .p").forEach((text) => {
-    //   gsap.fromTo(
-    //     text,
-    //     { y: 64, opacity: 0 },
-    //     {
-    //       y: 0,
-    //       opacity: 1,
-    //       scrollTrigger: {
-    //         trigger: text,
-    //         start: "top bottom",
-    //         toggleActions: "play none none reverse",
-    //       },
-    //       duration: 0.8,
-    //       delay: 0.3,
-    //     }
-    //   );
-    // });
 
     gsap.fromTo(
       ".one",
@@ -137,37 +121,13 @@ const Appointment = () => {
     );
   }, []);
 
-  const counterRef = useRef(null);
-
-  useEffect(() => {
-    const targetValue = 30000;
-    let startValue = 0;
-    const duration = 2;
-
-    gsap.to(
-      { value: startValue },
-      {
-        value: targetValue,
-        duration: duration,
-        onUpdate: function () {
-          counterRef.current.innerText = `${Math.floor(
-            this.targets()[0].value
-          )}+`;
-        },
-        ease: "power1.out",
-      }
-    );
-  }, []);
-
   return (
     <>
       <Heading />
       <section className="appointmentSection">
         <div className="heading">
           <div className="textReveal">
-            <h1>
-              Quick <p></p> Easy Appointments
-            </h1>
+            <h1>Quick Easy Appointments</h1>
           </div>
           <div className="textReveal bot">
             <h1>
@@ -190,7 +150,7 @@ const Appointment = () => {
           </div>
 
           <div className="container">
-            <img src="/user1.jpg" alt="" />
+            <img src="/user1.webp" alt="" />
             <div className="one"></div>
             <div className="second"></div>
             <div className="third"></div>
@@ -350,7 +310,7 @@ const Appointment = () => {
               key={index}
               question={faq.question}
               answer={faq.answer}
-              isActive={activeIndex === index}
+              isActive={activeIndexes.includes(index)}
               onClick={() => handleClick(index)}
             />
           ))}

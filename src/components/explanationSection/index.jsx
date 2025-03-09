@@ -1,6 +1,5 @@
 import React, { useRef } from "react";
 import "./styles.scss";
-import { gsap } from "gsap";
 
 const index = () => {
   const imgRef = useRef(null);
@@ -37,7 +36,7 @@ const index = () => {
             }}
           >
             <img
-              src="/puzzle.jpg"
+              src="/puzzle.webp"
               alt="images"
               loading="lazy"
               ref={imgRef}

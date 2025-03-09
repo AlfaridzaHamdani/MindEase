@@ -1,4 +1,3 @@
-import Navbar from "../components/Navbar";
 import AboutUsSection from "../components/aboutSection";
 import BrandSection from "../components/brandSection";
 import VisiMisiSection from "../components/visiMisiSection";

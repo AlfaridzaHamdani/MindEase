@@ -279,7 +279,7 @@ $backgroundColor: #251b5f;
     height: 100%;
     z-index: 1;
     background-color: $black;
-    background-image: url("/public/HeroImage.jpg");
+    background-image: url("/public/HeroImage.webp");
     background-position: top;
     background-size: calc(100% + 180px);
     transform: translateX(-126px);
@@ -354,7 +354,7 @@ $backgroundColor: #251b5f;
     height: 400px;
     background-color: $black;
     border-radius: 16px;
-    background-image: url("/public/HeroImage2.jpg");
+    background-image: url("/public/HeroImage2.webp");
     background-size: cover;
     background-position: top;
   }

@@ -90,15 +90,17 @@ const Navbar = () => {
     });
 
     // Ensure active link is white
-    gsap.to(itemRefs.current[index], {
-      color: "#fcfcfc",
-      duration: 0.3,
-      ease: "power3.out",
-    });
-
-    if (isHovering) {
+    if (itemRefs.current[index]) {
       gsap.to(itemRefs.current[index], {
-        color: "#fcfcfc", // Highlight hovered item
+        color: "#fcfcfc",
+        duration: 0.3,
+        ease: "power3.out",
+      });
+    }
+
+    if (isHovering && itemRefs.current[index]) {
+      gsap.to(itemRefs.current[index], {
+        color: "#fcfcfc",
         duration: 0.3,
         ease: "power3.out",
       });

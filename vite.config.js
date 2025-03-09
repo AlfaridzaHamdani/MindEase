@@ -1,12 +1,29 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
+import compression from "vite-plugin-compression";
 
-// https://vitejs.dev/config/w
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react(),
+    compression({ algorithm: "gzip" }),
+    compression({ algorithm: "brotliCompress", ext: ".br" }),
+  ],
   server: {
     headers: {
-      "permissions-policy": "interest-cohort=()",
+      "Permissions-Policy": "interest-cohort=()",
+    },
+  },
+  build: {
+    minify: "true",
+    cssCodeSplit: true,
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes("node_modules")) {
+            return "vendor";
+          }
+        },
+      },
     },
   },
 });

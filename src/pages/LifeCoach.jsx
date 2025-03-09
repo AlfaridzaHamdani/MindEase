@@ -4,9 +4,9 @@ import Heading from "../components/heading";
 import { Link } from "react-router-dom";
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
-import Bola from "/bolaKusut.jpg";
-import Hero from "/HeroImage.jpg";
-import User from "/user5.jpg";
+import Bola from "/bolaKusut.webp";
+import Hero from "/HeroImage.webp";
+import User from "/user5.webp";
 const Schedule = ({ day, date, month, booked }) => {
   return (
     <div className={` ${booked == 25 ? `full` : `card`}`}>

@@ -1,5 +1,4 @@
 import "./styles.scss";
-import { FaStar } from "react-icons/fa";
 
 const Card = ({ message, img, star, type, prefesion, color }) => {
   return (
@@ -11,7 +10,12 @@ const Card = ({ message, img, star, type, prefesion, color }) => {
       <div className="bot">
         <div className="star">
           {[...Array(star)].map((_, index) => (
-            <FaStar key={index} color="gold" size={16} />
+            <img
+              src="/star-icon.svg"
+              alt="star-icon"
+              key={index}
+              loading="lazy"
+            />
           ))}
         </div>
         <h2 style={{ backgroundColor: `#${color}` }}>{prefesion}</h2>
@@ -25,7 +29,7 @@ const Index = () => {
     {
       message:
         "This app is a lifesaver! Mindease has completely transformed how I deal with stress and anxiety. ",
-      img: "/user1.jpg",
+      img: "/user1.webp",
       star: 4,
       type: "show",
       prefesion: "Teacher",
@@ -34,7 +38,7 @@ const Index = () => {
     {
       message:
         "This app is a lifesaver! Mindease has completely transformed how I deal with stress and anxiety. ",
-      img: "/user2.jpg",
+      img: "/user2.webp",
       star: 5,
       type: "hidden",
       prefesion: "Student",
@@ -46,7 +50,7 @@ const Index = () => {
     {
       message:
         "This app is a lifesaver! Mindease has completely transformed how I deal with stress and anxiety. ",
-      img: "/user3.jpg",
+      img: "/user3.webp",
       star: 4,
       type: "show",
       prefesion: "Office Workers",
@@ -55,7 +59,7 @@ const Index = () => {
     {
       message:
         "This app is a lifesaver! Mindease has completely transformed how I deal with stress and anxiety. ",
-      img: "/user4.jpg",
+      img: "/user4.webp",
       star: 5,
       type: "hidden",
       prefesion: "Lawyers",
@@ -64,7 +68,7 @@ const Index = () => {
     {
       message:
         "This app is a lifesaver! Mindease has completely transformed how I deal with stress and anxiety. ",
-      img: "/user5.jpg",
+      img: "/user5.webp",
       star: 5,
       type: "hidden",
       prefesion: "Artists",
@@ -76,7 +80,7 @@ const Index = () => {
     {
       message:
         "This app is a lifesaver! Mindease has completely transformed how I deal with stress and anxiety. ",
-      img: "/user6.jpg",
+      img: "/user6.webp",
       star: 4,
       type: "show",
       prefesion: "Student",
@@ -85,7 +89,7 @@ const Index = () => {
     {
       message:
         "This app is a lifesaver! Mindease has completely transformed how I deal with stress and anxiety. ",
-      img: "/user7.jpg",
+      img: "/user7.webp",
       star: 5,
       type: "hidden",
       prefesion: "Lawyers",
